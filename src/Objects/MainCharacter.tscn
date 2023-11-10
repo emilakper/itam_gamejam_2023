@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://berb6p86mq5qv"]
+[gd_scene load_steps=6 format=3 uid="uid://berb6p86mq5qv"]
 
 [ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
 [ext_resource type="Texture2D" uid="uid://dhfvg8jhpyibs" path="res://icon.svg" id="2_hrw1k"]
+[ext_resource type="PackedScene" uid="uid://qmc84n44pqd6" path="res://UI/KeyPopup.tscn" id="3_xja76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdbyy"]
 size = Vector2(37, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo5fw"]
+size = Vector2(20, 28)
+
 [node name="MainCharacter" type="CharacterBody2D"]
+light_mask = 3
+visibility_layer = 3
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_1gw75")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -17,3 +25,23 @@ shape = SubResource("RectangleShape2D_fdbyy")
 position = Vector2(46, 46)
 scale = Vector2(0.28125, 0.28125)
 texture = ExtResource("2_hrw1k")
+
+[node name="DoorChecker" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorChecker"]
+position = Vector2(47, 46)
+shape = SubResource("RectangleShape2D_mo5fw")
+
+[node name="DoorPopup" parent="." instance=ExtResource("3_xja76")]
+visible = false
+modulate = Color(1, 1, 1, 0.513726)
+offset_left = 38.0
+offset_top = 1.0
+offset_right = 52.0
+offset_bottom = 27.0
+pivot_offset = Vector2(7, 12)
+
+[connection signal="body_entered" from="DoorChecker" to="." method="_on_door_checker_body_entered"]
+[connection signal="body_exited" from="DoorChecker" to="." method="_on_door_checker_body_exited"]
