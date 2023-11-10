@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://berb6p86mq5qv"]
+
+[ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
+[ext_resource type="Texture2D" uid="uid://dhfvg8jhpyibs" path="res://icon.svg" id="2_hrw1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdbyy"]
+size = Vector2(37, 34)
+
+[node name="MainCharacter" type="CharacterBody2D"]
+script = ExtResource("1_1gw75")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(47.5, 48)
+shape = SubResource("RectangleShape2D_fdbyy")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(46, 46)
+scale = Vector2(0.28125, 0.28125)
+texture = ExtResource("2_hrw1k")
