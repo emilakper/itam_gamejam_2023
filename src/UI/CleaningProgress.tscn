@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://urittvtdr787"]
+
+[node name="CleaningProgress" type="ProgressBar"]
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 239.0
+offset_bottom = 56.0
+value = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -24.0
+offset_right = 261.0
+bbcode_enabled = true
+text = "[outline_size=5][outline_color=black]Cleaning:[/outline_color][/outline_size]"

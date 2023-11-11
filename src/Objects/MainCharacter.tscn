@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://berb6p86mq5qv"]
+[gd_scene load_steps=8 format=3 uid="uid://berb6p86mq5qv"]
 
 [ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
 [ext_resource type="Texture2D" uid="uid://dhfvg8jhpyibs" path="res://icon.svg" id="2_hrw1k"]
 [ext_resource type="PackedScene" uid="uid://qmc84n44pqd6" path="res://UI/KeyPopup.tscn" id="3_xja76"]
+[ext_resource type="PackedScene" uid="uid://dockhy0w3pjbg" path="res://UI/GUI.tscn" id="4_maq13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdbyy"]
 size = Vector2(37, 34)
@@ -62,6 +63,16 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MinigameChecker"]
 position = Vector2(46, 45)
 shape = SubResource("RectangleShape2D_t8ldx")
+
+[node name="GUI" parent="." instance=ExtResource("4_maq13")]
+offset_left = 4.0
+offset_top = -108.0
+offset_right = 171.0
+offset_bottom = -78.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(207, 49)
+zoom = Vector2(2, 2)
 
 [connection signal="body_entered" from="DoorChecker" to="." method="_on_door_checker_body_entered"]
 [connection signal="body_exited" from="DoorChecker" to="." method="_on_door_checker_body_exited"]

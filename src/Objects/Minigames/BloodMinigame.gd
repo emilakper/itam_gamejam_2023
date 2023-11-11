@@ -8,7 +8,7 @@ enum MinigameType {
 }
 
 signal minigame_start
-signal minigame_end
+signal minigame_end(reward)
 
 var is_active : bool = false
 
@@ -17,6 +17,9 @@ var Settings: MinigameResource
 
 @export
 var CurrentlyActiveLineIndex: int
+
+@export
+var reward: int
 
 
 # Called when the node enters the scene tree for the first time.
@@ -80,12 +83,12 @@ func queue_stuff(scancode):
 			characters_yet_achived += 1
 			if characters_yet_achived == characters_to_achive:
 				is_active = false
-				emit_signal("minigame_end")	
+				minigame_end.emit(reward)
 		else:
 			recolor_character(characters_yet_achived, false)
 	else:
 		is_active = false
-		emit_signal("minigame_end")	
+		emit_signal("minigame_end", reward)	
 
 
 
@@ -105,7 +108,7 @@ func _on_area_exited(area):
 		
 
 
-func _on_minigame_end():
+func _on_minigame_end(reward):
 	$FreeTimer.start()
 
 

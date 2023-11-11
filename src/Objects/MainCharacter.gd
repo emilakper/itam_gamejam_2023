@@ -12,6 +12,9 @@ var speed : float = 300.0
 var Background: TileMap = null
 @export 
 var Foreground: TileMap = null
+@export
+var MGSettings: MinigameSettings
+
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -40,7 +43,7 @@ func __connect_signals_of_type(node_type: String, signal_name:String, handler_na
 func _ready():
 	__connect_signals_of_type("Minigame", "minigame_start", _on_minigame_start)
 	__connect_signals_of_type("Minigame", "minigame_end", _on_minigame_end)
-
+	
 func block_input() -> void:
 	should_block_input = true
 	
@@ -50,8 +53,9 @@ func unblock_input() -> void:
 func _on_minigame_start() -> void:
 	block_input()
 	
-func _on_minigame_end() -> void:
+func _on_minigame_end(reward) -> void:
 	unblock_input()
+	$GUI.apply_award(reward)
 	CurrentMinigame = null
 	
 
@@ -80,7 +84,7 @@ func enter_door():
 	Foreground.modulate = darken_foreground(Foreground, 0.5)
 	set_collisions_to(COLLISION_INSIDE_LAYER | COLLISION_BASE_LAYER)
 	$DoorPopup.hide()
-	$DoorPopup.text = "s"
+	$DoorPopup.text = "S"
 	show_background(Background)
 	is_inside = true
 	emit_signal("entered_door") 

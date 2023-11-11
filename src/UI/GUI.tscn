@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dockhy0w3pjbg"]
+
+[ext_resource type="Script" path="res://UI/GUI.gd" id="1_2n3gy"]
+
+[node name="GUI" type="MarginContainer"]
+offset_right = 167.0
+offset_bottom = 30.0
+script = ExtResource("1_2n3gy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(26, 0)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Bars" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bar" type="HBoxContainer" parent="HBoxContainer/Bars"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/Bars/Bar"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0

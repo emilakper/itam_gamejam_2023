@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_3x8xm"]
 script = ExtResource("2_ydykh")
-TYPE = 1
+TYPE = 0
 ExcludesForOverwrite = Array[int]([])
 Json = "res://MinigameJson.json"
 
