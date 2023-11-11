@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://berb6p86mq5qv"]
+[gd_scene load_steps=9 format=3 uid="uid://berb6p86mq5qv"]
 
 [ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
 [ext_resource type="Texture2D" uid="uid://dhfvg8jhpyibs" path="res://icon.svg" id="2_hrw1k"]
 [ext_resource type="PackedScene" uid="uid://qmc84n44pqd6" path="res://UI/KeyPopup.tscn" id="3_xja76"]
 [ext_resource type="PackedScene" uid="uid://dockhy0w3pjbg" path="res://UI/GUI.tscn" id="4_maq13"]
+[ext_resource type="PackedScene" uid="uid://kj1psuogtg7v" path="res://Objects/StairsChecker.tscn" id="5_hp8n4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdbyy"]
 size = Vector2(37, 34)
@@ -56,6 +57,16 @@ offset_bottom = 27.0
 pivot_offset = Vector2(7, 12)
 text = "W"
 
+[node name="StairsPopup" parent="." instance=ExtResource("3_xja76")]
+visible = false
+modulate = Color(1, 1, 1, 0.513726)
+offset_left = 38.0
+offset_top = 1.0
+offset_right = 52.0
+offset_bottom = 27.0
+pivot_offset = Vector2(7, 12)
+text = "W"
+
 [node name="MinigameChecker" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 128
@@ -74,5 +85,12 @@ offset_bottom = -78.0
 position = Vector2(207, 49)
 zoom = Vector2(2, 2)
 
+[node name="StairsChecker" parent="." instance=ExtResource("5_hp8n4")]
+position = Vector2(47, 46)
+
 [connection signal="body_entered" from="DoorChecker" to="." method="_on_door_checker_body_entered"]
 [connection signal="body_exited" from="DoorChecker" to="." method="_on_door_checker_body_exited"]
+[connection signal="area_entered" from="StairsChecker" to="." method="_on_stairs_checker_area_entered"]
+[connection signal="area_exited" from="StairsChecker" to="." method="_on_stairs_checker_area_exited"]
+
+[editable path="StairsChecker"]

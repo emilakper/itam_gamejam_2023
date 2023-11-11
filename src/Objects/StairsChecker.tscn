@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://kj1psuogtg7v"]
+
+[ext_resource type="Script" path="res://Objects/StairsChecker.gd" id="1_wlqv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owjos"]
+
+[node name="StairsChecker" type="Area2D"]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_wlqv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_owjos")

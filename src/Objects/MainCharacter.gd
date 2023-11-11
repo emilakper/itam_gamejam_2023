@@ -16,6 +16,9 @@ var Foreground: TileMap = null
 var MGSettings: MinigameSettings
 
 
+var CurrentStairs: Stairs = null
+
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -128,6 +131,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("EnterDoor") and $MinigamePopup.visible and CurrentMinigame != null:
 		CurrentMinigame.start_minigame()
 		$MinigamePopup.hide()
+	
+	if Input.is_action_just_pressed("EnterDoor") and $StairsPopup.visible and CurrentStairs != null:
+		CurrentStairs.teleport_to_other_side(self)
 
 # The body will always be a door since the DoorChecker's mask is set to
 # be on the door layer 
@@ -161,3 +167,13 @@ func hide_interact_button(which_button: Interactables):
 			popup = $MinigamePopup
 	popup.hide()
 
+
+
+func _on_stairs_checker_area_entered(area: Stairs):
+	CurrentStairs = area
+	$StairsPopup.show()
+
+
+func _on_stairs_checker_area_exited(area):
+	CurrentStairs = null
+	$StairsPopup.hide()

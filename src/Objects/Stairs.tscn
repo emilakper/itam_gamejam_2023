@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://byk0u65qje2c5"]
+
+[ext_resource type="Script" path="res://Objects/Stairs.gd" id="1_ljscn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c8g8"]
+
+[node name="Stairs" type="Area2D"]
+scale = Vector2(-2.01352, 5.6829)
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_ljscn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3c8g8")
