@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_b3u2g"]
 [ext_resource type="PackedScene" uid="uid://b6vuso8michvn" path="res://dialogue_templates/actioanable_finder.tscn" id="3_p3sex"]
 [ext_resource type="Texture2D" uid="uid://d3baj6rygkb3f" path="res://addons/dialogue_manager/assets/update.svg" id="4_wiqwj"]
-[ext_resource type="Script" path="res://Levels/TestCharacter.gd" id="5_jb5b7"]
+[ext_resource type="Script" path="res://Objects/TestCharacter.gd" id="5_fyi44"]
 [ext_resource type="PackedScene" uid="uid://b4y64v8ulx7nm" path="res://dialogue_templates/actionable.tscn" id="6_lgpei"]
 [ext_resource type="Resource" uid="uid://bom85tg50v3bh" path="res://dialogues/example_dialogue.dialogue" id="7_0yert"]
 
@@ -54,7 +54,7 @@ color = Color(0.0470588, 0.501961, 0.827451, 0.913725)
 [node name="TestCharacter" type="Sprite2D" parent="."]
 position = Vector2(716, 290)
 texture = ExtResource("4_wiqwj")
-script = ExtResource("5_jb5b7")
+script = ExtResource("5_fyi44")
 
 [node name="Actionable" parent="TestCharacter" instance=ExtResource("6_lgpei")]
 dialogue_resource = ExtResource("7_0yert")
