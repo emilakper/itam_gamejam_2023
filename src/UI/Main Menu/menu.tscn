@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://g1cbijw535kp"]
+
+[ext_resource type="Script" path="res://UI/Main Menu/menu.gd" id="1_abvrw"]
+[ext_resource type="Texture2D" uid="uid://cq4l3501je3fl" path="res://фон_для_меню.png" id="2_2fc0c"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fqnpy"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_abvrw")
+
+[node name="ФонДляМеню" type="Sprite2D" parent="."]
+position = Vector2(571.5, 320.5)
+scale = Vector2(0.600521, 0.600926)
+texture = ExtResource("2_2fc0c")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 65.0
+offset_top = 188.0
+offset_right = 453.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 45
+text = "Start a new game"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 63.0
+offset_top = 471.0
+offset_right = 451.0
+offset_bottom = 591.0
+theme_override_font_sizes/font_size = 45
+text = "Quit
+"
+
+[node name="Settings" type="Button" parent="."]
+offset_left = 68.0
+offset_top = 329.0
+offset_right = 452.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 44
+text = "Settings"
+icon = SubResource("ViewportTexture_fqnpy")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
