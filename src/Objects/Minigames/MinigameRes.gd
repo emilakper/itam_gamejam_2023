@@ -13,6 +13,7 @@ enum MinigameType {
 var TYPE: MinigameType : 
 	set(value): 
 		TYPE = value 
+		
 @export 
 var ExcludesForOverwrite: Array[int] :
 	set(value):
@@ -27,6 +28,7 @@ var Json: String:
 
 
 var texts: Array
+var keycodes: Array
 var title: String
 
 func getTitle() -> String:
@@ -50,13 +52,19 @@ func _init(p_type: MinigameType = MinigameType.BLOOD, p_excludes_overwrite: Arra
 	
 	
 func parse():
+	match TYPE:
+		MinigameType.BLOOD:
+			typeString = "blood"
+		MinigameType.CORPSE:
+			typeString = "corpse"
 	assert(!typeString.is_empty(), "Type was empty")
 	assert(!Json.is_empty(), "Json path was not provided")
 	var json = JSON.new()
 	var err: Error = json.parse(__readJsonFile(Json))
 	var json_data = json.data
 	assert(err == OK)
-	texts = json_data[typeString]["possible_strings"]
+	texts = json_data[typeString]["possible_strings"]["ru"]
+	keycodes = json_data[typeString]["possible_strings"]["en"]
 	title = json_data[typeString]["title"]
 	
 	

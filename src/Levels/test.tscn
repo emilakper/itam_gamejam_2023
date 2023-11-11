@@ -36,3 +36,4 @@ color = Color(0.0470588, 0.501961, 0.827451, 0.913725)
 
 [node name="BloodMinigame" parent="." instance=ExtResource("3_bmkpj")]
 position = Vector2(79, 200)
+CurrentlyActiveLineIndex = 0

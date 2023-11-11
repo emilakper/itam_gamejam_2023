@@ -1,19 +1,24 @@
 {
   "blood": {
 	"title": "Убрать кровь",
-	"possible_strings": [
-	  "УбратьКровь",
-	  "УБРАТЬ КРОВЬ",
-	  "Убрать кровушку :(",
-	  "Долой кровь!"
-	],
-	"exclude": [1, 2]
+	"possible_strings": {
+		"ru": [
+	  		"УратьКровь"
+		],
+		"en": [
+			"EhfnmRhjdm"
+		]
+	 }
   },
   "corpse": {
 	"title": "Убрать труп",
-	"possible_strings": [
-	  "Убрать труп",
-	  "Труп должен быть убранным"
-	]
+	"possible_strings": {
+		"ru": [
+	  "Уратьтруп",
+		],
+		"en": [
+			"Ehfnmnheg"
+		]
+	}
   }
 }
