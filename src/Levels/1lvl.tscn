@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4g3nax3ssld1"]
+[gd_scene load_steps=24 format=3 uid="uid://c4g3nax3ssld1"]
 
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_dx8la"]
 [ext_resource type="Texture2D" uid="uid://chyiovelop7un" path="res://SpriteSources/emil_textures/first_set.png" id="3_6frsa"]
@@ -10,6 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://c6dxtshvg7fm0" path="res://Block.tscn" id="8_05okk"]
 [ext_resource type="PackedScene" uid="uid://c0630cy17nx8t" path="res://Objects/Minigames/BloodMinigame.tscn" id="9_pv7l3"]
 [ext_resource type="Script" path="res://Objects/Minigames/MinigameRes.gd" id="10_hdyuh"]
+[ext_resource type="Texture2D" uid="uid://c0lbe7jd2ynsm" path="res://Objects/Minigames/tumba.png" id="11_5a34v"]
+[ext_resource type="Texture2D" uid="uid://dd5cxl8vhityy" path="res://Objects/Minigames/floorwithoutbody.png" id="11_vymim"]
+[ext_resource type="Texture2D" uid="uid://d0w13uhf0o3gt" path="res://Objects/Minigames/bodyfloor.png" id="12_02d2l"]
+[ext_resource type="Texture2D" uid="uid://cybwp1quptch" path="res://Objects/Minigames/tumbablood.png" id="12_iwmfb"]
+[ext_resource type="Texture2D" uid="uid://bub8yeq58l0lw" path="res://Objects/Minigames/clock.png" id="15_q6x2v"]
+[ext_resource type="Texture2D" uid="uid://qpptd742nqqb" path="res://Objects/Minigames/clockblood.png" id="16_lwbcx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flvl2"]
 texture = ExtResource("4_yhhfg")
@@ -423,6 +429,18 @@ collision_layer = 256
 collision_mask = 256
 hero = NodePath("../MainCharacter")
 
+[node name="BodyCleared" type="Sprite2D" parent="."]
+position = Vector2(386, 30)
+texture = ExtResource("11_vymim")
+
+[node name="ClockCleared" type="Sprite2D" parent="."]
+position = Vector2(865, -1)
+texture = ExtResource("15_q6x2v")
+
+[node name="VaseCleared" type="Sprite2D" parent="."]
+position = Vector2(416, 223)
+texture = ExtResource("11_5a34v")
+
 [node name="BlockOutsideDoor" parent="." node_paths=PackedStringArray("hero") instance=ExtResource("8_05okk")]
 visible = false
 position = Vector2(173, 151)
@@ -431,15 +449,33 @@ collision_layer = 0
 collision_mask = 0
 hero = NodePath("../MainCharacter")
 
-[node name="BloodMinigame" parent="." instance=ExtResource("9_pv7l3")]
-position = Vector2(380, -3)
+[node name="BodyMinigame" parent="." node_paths=PackedStringArray("BaseSpriteTexture", "ClearedSpriteTexture") instance=ExtResource("9_pv7l3")]
+position = Vector2(381, -6)
 Settings = SubResource("Resource_qm6ej")
 reward = 4
+BaseSpriteTexture = NodePath("Base")
+ClearedSpriteTexture = NodePath("../BodyCleared")
 
-[node name="BloodMinigame2" parent="." instance=ExtResource("9_pv7l3")]
+[node name="Base" type="Sprite2D" parent="BodyMinigame"]
+position = Vector2(6, 36)
+texture = ExtResource("12_02d2l")
+
+[node name="VaseMinigame" parent="." node_paths=PackedStringArray("BaseSpriteTexture", "ClearedSpriteTexture") instance=ExtResource("9_pv7l3")]
 position = Vector2(416, 187)
 reward = 1
+BaseSpriteTexture = NodePath("Base")
+ClearedSpriteTexture = NodePath("../VaseCleared")
 
-[node name="BloodMinigame3" parent="." instance=ExtResource("9_pv7l3")]
+[node name="Base" type="Sprite2D" parent="VaseMinigame"]
+position = Vector2(-1, 36)
+texture = ExtResource("12_iwmfb")
+
+[node name="ClockMinigame" parent="." node_paths=PackedStringArray("BaseSpriteTexture", "ClearedSpriteTexture") instance=ExtResource("9_pv7l3")]
 position = Vector2(865, -4)
 reward = 1
+BaseSpriteTexture = NodePath("Base")
+ClearedSpriteTexture = NodePath("../ClockCleared")
+
+[node name="Base" type="Sprite2D" parent="ClockMinigame"]
+position = Vector2(1, 3)
+texture = ExtResource("16_lwbcx")

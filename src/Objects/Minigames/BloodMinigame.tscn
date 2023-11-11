@@ -24,6 +24,7 @@ shape = SubResource("RectangleShape2D_p1yem")
 
 [node name="Title" type="Label" parent="."]
 visible = false
+z_index = 10
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,6 +40,7 @@ size_flags_horizontal = 4
 
 [node name="Text" type="RichTextLabel" parent="."]
 visible = false
+z_index = 10
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
@@ -58,4 +60,5 @@ one_shot = true
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="minigame_end" from="." to="." method="_on_minigame_end"]
+[connection signal="minigame_start" from="." to="." method="_on_minigame_start"]
 [connection signal="timeout" from="FreeTimer" to="." method="_on_free_timer_timeout"]

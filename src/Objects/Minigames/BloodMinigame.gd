@@ -21,9 +21,17 @@ var CurrentlyActiveLineIndex: int
 @export
 var reward: int
 
+@export 
+var BaseSpriteTexture: Sprite2D	
+@export
+var ClearedSpriteTexture: Sprite2D
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ClearedSpriteTexture.hide()
+	BaseSpriteTexture.show()
 	Settings.parse()
 	$Title.text = Settings.getTitle()
 
@@ -110,7 +118,13 @@ func _on_area_exited(area):
 
 func _on_minigame_end(reward):
 	$FreeTimer.start()
-
+	ClearedSpriteTexture.show()
+	BaseSpriteTexture.hide()
 
 func _on_free_timer_timeout():
 	queue_free()
+	# ClearedSpriteTexture.show()
+
+
+func _on_minigame_start():
+	pass # Replace with function body.
