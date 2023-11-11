@@ -11,7 +11,8 @@ var OtherSide: Stairs
 #var hero: Hero = get_parent().find_children("*", "Hero")[0]
 
 func teleport_to_other_side(object: Node2D) -> void:
-	object.position = OtherSide.position
+	var hitbox: CollisionShape2D = OtherSide.get_node("CollisionShape2D")
+	object.position = OtherSide.position - hitbox.shape.size
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

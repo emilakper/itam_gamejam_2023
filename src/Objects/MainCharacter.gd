@@ -31,6 +31,7 @@ var should_block_input: bool = false
 const COLLISION_BASE_LAYER : int = 1
 const COLLISION_OUTSIDE_LAYER : int = pow(2, 1) 
 const COLLISION_INSIDE_LAYER : int = pow(2, 2) 
+const COLLISION_HERO_LAYER : int = 256
 
 
 
@@ -82,11 +83,12 @@ func show_background(background: TileMap) -> void:
 	background.show()
 
 func hide_background() -> void:
-	Background.hide()
+	pass
 
 func set_collisions_to(masks: int) -> void:
-	collision_layer = masks
+	collision_layer = masks | COLLISION_HERO_LAYER
 	collision_mask = collision_layer
+	
 	
 func enter_door():
 	Foreground.modulate = darken_foreground(Foreground, 0.5)

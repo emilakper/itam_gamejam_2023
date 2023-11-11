@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6dxtshvg7fm0"]
+
+[ext_resource type="Script" path="res://Block.gd" id="1_aqees"]
+[ext_resource type="Texture2D" uid="uid://dhfvg8jhpyibs" path="res://icon.svg" id="1_xxy5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oniax"]
+size = Vector2(145, 143)
+
+[node name="Block" type="RigidBody2D"]
+disable_mode = 1
+mass = 1000.0
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("1_aqees")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(62.5, 61.5)
+shape = SubResource("RectangleShape2D_oniax")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(61, 62)
+texture = ExtResource("1_xxy5a")

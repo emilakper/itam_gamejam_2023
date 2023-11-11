@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="itam_gamejam"
-run/main_scene="res://Levels/test.tscn"
+run/main_scene="res://Levels/1lvl.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 
@@ -38,6 +46,10 @@ LeaveDoor={
 ]
 }
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogues/example_dialogue.dialogue")
+
 [layer_names]
 
 2d_render/layer_2="outside"
@@ -47,3 +59,4 @@ LeaveDoor={
 2d_physics/layer_6="doors"
 2d_physics/layer_7="ledders"
 2d_physics/layer_8="minigames"
+2d_physics/layer_9="hero"

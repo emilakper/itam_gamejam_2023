@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://q5quqm7mo33h"]
+
+[sub_resource type="Gradient" id="Gradient_xlsvf"]
+offsets = PackedFloat32Array(0, 0.262097, 0.395161, 0.600806, 0.754032, 0.758065, 0.790323, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.00788834, 0.00788834, 0.00788834, 1, 0.00931395, 0.00931395, 0.00931395, 1, 0.600806, 0.600806, 0.600806, 1, 0.129032, 0.129032, 0.129032, 1, 0.693548, 0.693548, 0.693548, 1, 0.734409, 0.734409, 0.734409, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lmmlp"]
+gradient = SubResource("Gradient_xlsvf")
+fill = 1
+fill_from = Vector2(0.525641, 0.547009)
+fill_to = Vector2(0.568376, 0.850427)
+
+[node name="SimplePointLight" type="PointLight2D"]
+texture = SubResource("GradientTexture2D_lmmlp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
