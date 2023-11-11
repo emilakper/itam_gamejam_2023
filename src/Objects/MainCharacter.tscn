@@ -76,10 +76,11 @@ position = Vector2(46, 45)
 shape = SubResource("RectangleShape2D_t8ldx")
 
 [node name="GUI" parent="." instance=ExtResource("4_maq13")]
-offset_left = 4.0
-offset_top = -108.0
-offset_right = 171.0
-offset_bottom = -78.0
+z_index = 999
+offset_left = -48.0
+offset_top = -102.0
+offset_right = 139.0
+offset_bottom = -3.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(207, 49)

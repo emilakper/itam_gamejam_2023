@@ -14,7 +14,8 @@ var Background: TileMap = null
 var Foreground: TileMap = null
 @export
 var MGSettings: MinigameSettings
-
+@export
+var cops_timer: CopsTimer
 
 var CurrentStairs: Stairs = null
 
@@ -44,6 +45,7 @@ func __connect_signals_of_type(node_type: String, signal_name:String, handler_na
 		i.connect(signal_name, handler_name)
 		
 func _ready():
+	cops_timer.connect("cops_arrived", _on_cops_arrived)
 	__connect_signals_of_type("Minigame", "minigame_start", _on_minigame_start)
 	__connect_signals_of_type("Minigame", "minigame_end", _on_minigame_end)
 	
@@ -55,6 +57,9 @@ func unblock_input() -> void:
 
 func _on_minigame_start() -> void:
 	block_input()
+	
+func _on_cops_arrived():
+	get_tree().quit()
 	
 func _on_minigame_end(reward) -> void:
 	unblock_input()
