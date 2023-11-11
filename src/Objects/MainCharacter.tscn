@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://berb6p86mq5qv"]
+[gd_scene load_steps=7 format=3 uid="uid://berb6p86mq5qv"]
 
 [ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
 [ext_resource type="Texture2D" uid="uid://dhfvg8jhpyibs" path="res://icon.svg" id="2_hrw1k"]
@@ -9,6 +9,8 @@ size = Vector2(37, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo5fw"]
 size = Vector2(20, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8ldx"]
 
 [node name="MainCharacter" type="CharacterBody2D"]
 light_mask = 3
@@ -42,6 +44,24 @@ offset_top = 1.0
 offset_right = 52.0
 offset_bottom = 27.0
 pivot_offset = Vector2(7, 12)
+
+[node name="MinigamePopup" parent="." instance=ExtResource("3_xja76")]
+visible = false
+modulate = Color(1, 1, 1, 0.513726)
+offset_left = 38.0
+offset_top = 1.0
+offset_right = 52.0
+offset_bottom = 27.0
+pivot_offset = Vector2(7, 12)
+text = "W"
+
+[node name="MinigameChecker" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MinigameChecker"]
+position = Vector2(46, 45)
+shape = SubResource("RectangleShape2D_t8ldx")
 
 [connection signal="body_entered" from="DoorChecker" to="." method="_on_door_checker_body_entered"]
 [connection signal="body_exited" from="DoorChecker" to="." method="_on_door_checker_body_exited"]

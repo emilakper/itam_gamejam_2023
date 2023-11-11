@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MinigameResource" load_steps=2 format=3 uid="uid://b4wt7mfvfwr5e"]
+
+[ext_resource type="Script" path="res://Objects/Minigames/MinigameRes.gd" id="1_lgk6d"]
+
+[resource]
+script = ExtResource("1_lgk6d")
+TYPE = 0
+ExcludesForOverwrite = Array[int]([])
+Json = "res://MinigameJson.json"

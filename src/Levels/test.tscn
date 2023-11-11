@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjt02esfvotco"]
+[gd_scene load_steps=4 format=3 uid="uid://bjt02esfvotco"]
 
 [ext_resource type="PackedScene" uid="uid://bk7m8iwrwfu31" path="res://Objects/Terrain/Terrain.tscn" id="1_77abf"]
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_tpgna"]
+[ext_resource type="PackedScene" uid="uid://c0630cy17nx8t" path="res://Objects/Minigames/BloodMinigame.tscn" id="3_bmkpj"]
 
 [node name="TEST" type="Node2D"]
 modulate = Color(0.529412, 0.529412, 0.529412, 1)
@@ -32,3 +33,6 @@ layer_0/tile_data = PackedInt32Array(1376292, 1048576, 2, 1310755, 983040, 1, 13
 light_mask = 2
 visibility_layer = 2
 color = Color(0.0470588, 0.501961, 0.827451, 0.913725)
+
+[node name="BloodMinigame" parent="." instance=ExtResource("3_bmkpj")]
+position = Vector2(79, 200)

@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
+class_name Hero
+
 signal entered_door
 signal exited_door
+
 
 @export
 var speed : float = 300.0
@@ -85,8 +88,32 @@ func _process(_delta):
 # The body will always be a door since the DoorChecker's mask is set to
 # be on the door layer 
 func _on_door_checker_body_entered(body):
-	$DoorPopup.show()
+	show_interact_button(Interactables.DOOR)
 	
 
 func _on_door_checker_body_exited(body):
-	$DoorPopup.hide()
+	hide_interact_button(Interactables.DOOR)
+		
+enum Interactables {
+	DOOR,
+	MINIGAME
+}
+
+func show_interact_button(which_button: Interactables):
+	var popup : Node
+	match which_button:
+		Interactables.DOOR:
+			popup = $DoorPopup
+		Interactables.MINIGAME:
+			popup = $MinigamePopup
+	popup.show()
+	
+func hide_interact_button(which_button: Interactables):
+	var popup : Node
+	match which_button:
+		Interactables.DOOR:
+			popup = $DoorPopup
+		Interactables.MINIGAME:
+			popup = $MinigamePopup
+	popup.hide()
+	
