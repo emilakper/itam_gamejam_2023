@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bghlqasd2c42j"]
+
+[ext_resource type="Script" path="res://Objects/CopsArrival.gd" id="1_48ykk"]
+
+[node name="CopsArrival" type="Timer"]
+script = ExtResource("1_48ykk")
+base_wait_time = 150
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

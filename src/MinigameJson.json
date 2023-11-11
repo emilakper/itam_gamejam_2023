@@ -1,0 +1,24 @@
+{
+  "blood": {
+	"title": "Убрать кровь",
+	"possible_strings": {
+		"ru": [
+	  		"УратьКровь"
+		],
+		"en": [
+			"EhfnmRhjdm"
+		]
+	 }
+  },
+  "corpse": {
+	"title": "Убрать труп",
+	"possible_strings": {
+		"ru": [
+	  "Уратьтруп",
+		],
+		"en": [
+			"Ehfnmnheg"
+		]
+	}
+  }
+}

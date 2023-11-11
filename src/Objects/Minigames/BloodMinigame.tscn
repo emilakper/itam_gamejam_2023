@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0630cy17nx8t"]
+
+[ext_resource type="Script" path="res://Objects/Minigames/BloodMinigame.gd" id="1_3ut6j"]
+[ext_resource type="Script" path="res://Objects/Minigames/MinigameRes.gd" id="2_ydykh"]
+
+[sub_resource type="Resource" id="Resource_3x8xm"]
+script = ExtResource("2_ydykh")
+TYPE = 0
+ExcludesForOverwrite = Array[int]([])
+Json = "res://MinigameJson.json"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1yem"]
+size = Vector2(70, 66)
+
+[node name="BloodMinigame" type="Area2D"]
+collision_layer = 129
+collision_mask = 129
+script = ExtResource("1_3ut6j")
+Settings = SubResource("Resource_3x8xm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 34)
+shape = SubResource("RectangleShape2D_p1yem")
+
+[node name="Title" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -39.0
+offset_right = 38.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Text" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -10.0
+offset_right = 61.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+
+[node name="FreeTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="minigame_end" from="." to="." method="_on_minigame_end"]
+[connection signal="timeout" from="FreeTimer" to="." method="_on_free_timer_timeout"]
