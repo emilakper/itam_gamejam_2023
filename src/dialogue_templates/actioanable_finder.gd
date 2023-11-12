@@ -21,7 +21,7 @@ func find_actions() -> void:
 				break
 
 func _process(delta):
-	if Input.is_action_just_pressed("Speak") and dialogue_free==true:
+	if Input.is_action_just_pressed("Speak") and dialogue_free==true and not hidden:
 		find_actions()
 
 
