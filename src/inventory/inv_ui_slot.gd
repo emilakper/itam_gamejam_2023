@@ -2,6 +2,7 @@ extends Panel
 
 @onready var item_visual : Sprite2D = $CenterContainer/Panel/item
 @onready var item_amount_visual : Label = $CenterContainer/Panel/Amount
+@onready var right_scale=item_visual.transform.scaled_local(Vector2(0.5,0.5))
 
 func update(item : InvSlot):
 	if (!item or item.amount==0):
@@ -9,7 +10,7 @@ func update(item : InvSlot):
 		item_amount_visual.visible=false
 	else:
 		item_visual.visible=true
-		item_visual.global_scale=Vector2(0.2,0.2)
+		item_visual.transform=right_scale
 		item_visual.centered=true
 		item_amount_visual.visible=true
 		item_visual.texture=item.item.texture
