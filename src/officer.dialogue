@@ -1,12 +1,12 @@
 ~ start
 
 if State.time_talked_to_officer == 0:
-	Офицер: Здравия желаю, товарищ майор!
-	Офицер: Вы уже провели первичный осмотр места преступления? Быстро вы!
+	Офицер: Солнце светит негры пашут
+	Офицер: Вот такая доля наша
 elif State.time_talked_to_officer == 1:
-	Офицер: Да-да?
+	Офицер: Чего зыришь? Надо что-то?
 elif State.time_talked_officer == 3:
-	Офицер: С вами все хорошо?
+	Офицер: ...Мне нравится когда волосатые мужики обмазываются маслом.
 else:
 	Офицер: ...
 set State.time_talked_to_officer = State.time_talked_to_officer + 1
@@ -17,10 +17,12 @@ if not State.did_cops_arrive:
 	Вызвать наряд?
 	- Дождаться наряда
 		do State.cops_arrive()
+		do State.fadein(1)
+		do State.fadeout(1)
 	- Вернуться
 else:
 	Вернуться?
-	- Закончить с местом преступления
+	- Поехать назад
 		do State.should_leave = true
 	- Вернуться
 	
