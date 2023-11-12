@@ -242,3 +242,5 @@ func _on_actioanable_finder_dialogue_started(resource):
 	
 func _on_dialogue_ended(res):
 	should_block_input = false
+
+
