@@ -358,14 +358,14 @@ Json = "res://MinigameJson.json"
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uhtf6"]
 cull_mode = 1
-polygon = PackedVector2Array(384.175, -50.2742, 386.576, -97.5764, 237.708, -97.3288, 235.307, -113.674, 74.4338, -113.674, 74.4338, -129.524, -43.2196, -130.019, -74.4338, -133.239, -74.4338, -144.383, -1145.32, -145.126, -1169.33, -129.772, -1308.59, -129.524, -1308.59, -113.674, -1462.26, -112.683, -1395.03, -97.5764, -1601.53, -96.5858, -1613.53, 15.6023, 374.57, 44.0827, 388.977, -46.807)
+polygon = PackedVector2Array(384.175, -50.2742, 386.576, -97.5764, 237.708, -97.3288, 235.307, -113.674, 74.4338, -113.674, 74.4338, -129.524, -43.2196, -130.019, -74.4338, -133.239, -74.4338, -144.383, -1145.32, -145.126, -1178.94, -130.267, -1306.19, -125.314, -1320.6, -115.903, -1464.67, -111.94, -1395.03, -97.5764, -1707.18, -95.5952, -1723.98, 76.0304, 400.982, 85.1936, 388.977, -46.807)
 
 [node name="TEST" type="Node2D"]
 position = Vector2(0, 1)
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("Background", "Foreground", "MGSettings", "cops_timer") instance=ExtResource("2_dx8la")]
 position = Vector2(93, 174)
-speed = 100.0
+speed = 200.0
 Background = NodePath("../Background")
 Foreground = NodePath("../Foreground")
 MGSettings = NodePath("../MinigamesSettings")
@@ -374,6 +374,9 @@ cops_timer = NodePath("../CopsArrival")
 [node name="Camera2D2" type="Camera2D" parent="MainCharacter"]
 position = Vector2(188, 26)
 zoom = Vector2(2, 2)
+limit_left = 75
+limit_right = 1100
+limit_smoothed = true
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6ihyk")
@@ -473,7 +476,6 @@ position = Vector2(0, -117)
 rotation = -0.607375
 skew = 0.322886
 color = Color(0.929412, 0.427451, 0.509804, 1)
-energy = 1.25
 blend_mode = 1
 range_z_max = 119
 shadow_enabled = true

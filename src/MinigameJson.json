@@ -3,10 +3,10 @@
 	"title": "Убрать кровь",
 	"possible_strings": {
 		"ru": [
-	  		"УратьКровь"
+	  		"ОчиститьОтКрови"
 		],
 		"en": [
-			"EhfnmRhjdm"
+			"JxbcnbnmJnRhjdb"
 		]
 	 }
   },
@@ -14,10 +14,10 @@
 	"title": "Убрать труп",
 	"possible_strings": {
 		"ru": [
-	  "Уратьтруп",
+	  "ПоднятьТруп",
 		],
 		"en": [
-			"Ehfnmnheg"
+			"GjlyznmNheg"
 		]
 	}
   }
