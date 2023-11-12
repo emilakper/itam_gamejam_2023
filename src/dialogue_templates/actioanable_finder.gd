@@ -1,5 +1,6 @@
 extends Area2D
 
+
 var dialogue_free=true
 
 signal dialogue_started(resource)

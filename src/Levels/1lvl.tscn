@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c4g3nax3ssld1"]
+[gd_scene load_steps=34 format=3 uid="uid://c4g3nax3ssld1"]
 
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_dx8la"]
 [ext_resource type="Texture2D" uid="uid://chyiovelop7un" path="res://SpriteSources/emil_textures/first_set.png" id="3_6frsa"]
@@ -21,7 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://b74nydlb6tf5s" path="res://Music/cleaningsound.mp3" id="17_qm5uq"]
 [ext_resource type="Script" path="res://Objects/Lights/Twinkle.gd" id="18_uhrcs"]
 [ext_resource type="PackedScene" uid="uid://dnvrb5ml58qtu" path="res://Objects/NPCs/Officer.tscn" id="19_7c5dw"]
+[ext_resource type="Texture2D" uid="uid://b30wxirpxivw0" path="res://background.png" id="22_g15yy"]
 [ext_resource type="PackedScene" uid="uid://dockhy0w3pjbg" path="res://UI/GUI.tscn" id="22_igfn0"]
+[ext_resource type="PackedScene" uid="uid://b78nmta87loqj" path="res://inventory/inventory_ui.tscn" id="22_smtl4"]
 [ext_resource type="PackedScene" uid="uid://b4y64v8ulx7nm" path="res://dialogue_templates/actionable.tscn" id="23_d5jyr"]
 [ext_resource type="Resource" uid="uid://b7eqjaoelx06" path="res://officer.dialogue" id="23_umqui"]
 
@@ -347,6 +349,16 @@ texture_region_size = Vector2i(64, 64)
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 0:3/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:3/0/physics_layer_1/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_ixjb4"]
 tile_size = Vector2i(64, 64)
@@ -400,7 +412,7 @@ light_mask = 4
 visibility_layer = 4
 tile_set = SubResource("TileSet_ixjb4")
 format = 2
-layer_0/tile_data = PackedInt32Array(262147, 65536, 1, 262146, 65536, 1, 262145, 196608, 1, 262144, 196608, 1, 327682, 0, 2, 393219, 0, 2, 393216, 0, 2, 458754, 0, 2, 458753, 0, 2, 458752, 0, 3, 393217, 0, 3, 393218, 0, 3, 458755, 0, 3, 327683, 0, 3, 327681, 0, 3, 327680, 0, 3, 327684, 0, 3, 262148, 65536, 1, 196609, 196608, 2, 196612, 262144, 1, 131076, 262144, 0, 65540, 196608, 0, 4, 196608, 0)
+layer_0/tile_data = PackedInt32Array(262147, 65536, 1, 262146, 65536, 1, 262145, 196608, 1, 262144, 196608, 1, 327682, 0, 2, 393219, 0, 2, 393216, 0, 2, 458754, 0, 2, 458753, 0, 2, 458752, 0, 3, 393217, 0, 3, 393218, 0, 3, 458755, 0, 3, 327683, 0, 3, 327681, 0, 3, 327680, 0, 3, 327684, 0, 3, 262148, 65536, 1, 196609, 196608, 2, 196612, 262144, 1, 131076, 262144, 0, 65540, 131072, 0, 4, 65536, 0)
 
 [node name="Stairs" parent="." node_paths=PackedStringArray("OtherSide") instance=ExtResource("4_40xd6")]
 position = Vector2(991, 196)
@@ -411,13 +423,13 @@ position = Vector2(992, 3)
 OtherSide = NodePath("../Stairs")
 
 [node name="CopsArrival" parent="." instance=ExtResource("5_t4fs1")]
-base_wait_time = 120
+base_wait_time = 80
 
 [node name="MinigamesSettings" parent="." instance=ExtResource("6_moaj7")]
 
 [node name="SimplePointLight" parent="." instance=ExtResource("7_kmikc")]
 position = Vector2(417, 200)
-color = Color(0.462745, 0, 0.482353, 1)
+color = Color(0.34902, 0.329412, 0.188235, 0.772549)
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_item_cull_mask = 3
@@ -490,7 +502,8 @@ top_level = true
 position = Vector2(0, -117)
 rotation = -0.607375
 skew = 0.322886
-color = Color(0.929412, 0.427451, 0.509804, 1)
+color = Color(0.0509804, 0.0352941, 0.0235294, 0.819608)
+energy = 11.63
 blend_mode = 1
 range_z_max = 119
 shadow_enabled = true
@@ -503,9 +516,9 @@ scale = Vector2(-0.416477, 4.03786)
 occluder = SubResource("OccluderPolygon2D_uhtf6")
 
 [node name="BodyLigyht" parent="." instance=ExtResource("7_kmikc")]
-position = Vector2(345, -19)
+position = Vector2(381, -19)
 scale = Vector2(0.361328, 0.361328)
-color = Color(1, 0, 0, 1)
+color = Color(0.513726, 0, 0.054902, 1)
 energy = 1.49
 shadow_enabled = true
 shadow_item_cull_mask = 2
@@ -514,21 +527,21 @@ script = ExtResource("18_uhrcs")
 
 [node name="Timer" type="Timer" parent="BodyLigyht"]
 
-[node name="BodyLigyht2" parent="." instance=ExtResource("7_kmikc")]
-position = Vector2(399, -15)
-scale = Vector2(0.361328, 0.361328)
-color = Color(1, 0, 0, 1)
-energy = 1.49
-shadow_enabled = true
-shadow_item_cull_mask = 2
-texture = ExtResource("8_qk542")
-script = ExtResource("18_uhrcs")
+[node name="ui" type="CanvasLayer" parent="."]
 
-[node name="Timer" type="Timer" parent="BodyLigyht2"]
+[node name="GUI" parent="ui" instance=ExtResource("22_igfn0")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" parent="CanvasLayer" instance=ExtResource("22_igfn0")]
+[node name="inventory_ui" parent="ui" instance=ExtResource("22_smtl4")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+offset_left = -320.0
+offset_right = 320.0
+offset_bottom = 128.0
+grow_horizontal = 0
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
 
 [node name="Exit" parent="." instance=ExtResource("23_d5jyr")]
 dialogue_resource = ExtResource("23_umqui")
@@ -543,7 +556,12 @@ visible = false
 position = Vector2(205, 134)
 collision_layer = 0
 
+[node name="back" type="Sprite2D" parent="."]
+z_index = -1100
+position = Vector2(664.125, 51.6875)
+scale = Vector2(1.17017, 1.00065)
+texture = ExtResource("22_g15yy")
+
 [connection signal="timeout" from="BodyLigyht/Timer" to="BodyLigyht" method="_on_timer_timeout"]
-[connection signal="timeout" from="BodyLigyht2/Timer" to="BodyLigyht2" method="_on_timer_timeout"]
 
 [editable path="Exit"]

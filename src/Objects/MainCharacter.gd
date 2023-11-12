@@ -19,6 +19,9 @@ var MGSettings: MinigameSettings
 @export
 var cops_timer: CopsTimer
 
+
+
+
 var CurrentStairs: Stairs = null
 
 var gui: GUI
@@ -37,7 +40,7 @@ const COLLISION_OUTSIDE_LAYER : int = pow(2, 1)
 const COLLISION_INSIDE_LAYER : int = pow(2, 2) 
 const COLLISION_HERO_LAYER : int = 256
 
-
+@onready var inv : Inv = preload("res://inventory/global_inventory.tres")
 
 var CurrentMinigame: Minigame = null
 
@@ -52,7 +55,11 @@ func __connect_signals_of_type(node_type: String, signal_name:String, handler_na
 func _on_got_dialogue(line):
 	pass
 	
+
 func _ready():
+
+	inv.add(InvItem.get_item("blood"))
+	
 	$character.get_node("Animations").queue("idle")
 	State.cops_arrived.connect(_on_cops_arrived)
 	gui = get_tree().current_scene.find_children("*", "GUI")[0]
@@ -165,6 +172,8 @@ func _process(_delta):
 	# maybe move it later
 	if not should_block_actions and Input.is_action_just_pressed("EnterDoor") and $MinigamePopup.visible and CurrentMinigame != null:
 		CurrentMinigame.start_minigame()
+		$character/Animations.play("sit_down")
+		$character/Animations.play("sitting")
 		$MinigamePopup.hide()
 	
 	if Input.is_action_just_pressed("EnterDoor") and $StairsPopup.visible and CurrentStairs != null:
