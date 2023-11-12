@@ -3,23 +3,25 @@
 if State.time_talked_to_officer == 0:
 	Офицер: Солнце светит негры пашут
 	Офицер: Вот такая доля наша
-	set State.time_talked_to_officer = 1
 elif State.time_talked_to_officer == 1:
-	Офицер: Хочешь уже уйти? Пф.
-	- Уйти
-		set State.should_leave = true
-		Офицер: Ну и скатертью дорожка.
-	- Остаться
-		Офицер: Не говори больше со мной.
-		set State.time_talked_to_officer = State.time_talked_to_officer + 1
+	Офицер: Чего зыришь? Надо что-то?
+elif State.time_talked_officer == 3:
+	Офицер: ...Мне нравится когда волосатые мужики обмазываются маслом.
 else:
 	Офицер: ...
-	[Вряд ли он передумает...]
+set State.time_talked_to_officer = State.time_talked_to_officer + 1
 => END
 
 ~ exit
-- Дождаться наряда
-	do State.cops_arrive()
-- Вернуться
+if not State.did_cops_arrive:
+	Вызвать наряд?
+	- Дождаться наряда
+		do State.cops_arrive()
+	- Вернуться
+else:
+	Вернуться?
+	- Поехать назад
+		do State.should_leave = true
+	- Вернуться
 	
 => END

@@ -2,6 +2,9 @@ extends Node
 
 signal cops_arrived
 
+
+var did_cops_arrive: bool = false
+
 var time_talked_to_officer: int = 0
 
 # Will work for now
@@ -13,6 +16,7 @@ func move_to_shop():
 func cops_arrive():
 	# get_tree().current_scene.find_children("*", "Officer")[0].show()
 	cops_arrived.emit()
+	did_cops_arrive = true
 
 func move_onto_other_level(level_path: String):
 	time_talked_to_officer = 0
