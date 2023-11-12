@@ -1,7 +1,9 @@
 extends Node2D
 
+func _ready():
+	MusicController.play_music()
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Levels/test.tscn")
+	get_tree().change_scene_to_file("res://Levels/1lvl.tscn")
 
 
 func _on_quit_pressed():

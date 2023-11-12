@@ -7,7 +7,7 @@ extends Control
 
 
 func _ready():
-	inv.updated_slot.connect(update_slots)
+	inv.updated.connect(update_slots)
 	update_slots()
 func update_slots():
 	for i in range(0,inv_size):

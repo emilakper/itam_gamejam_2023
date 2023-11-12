@@ -59,6 +59,7 @@ func _on_item_list_item_selected(index):
 
 func purchase_item():
 	emit_signal("purchased_item", item_array[selected_item_id]["image_name"])
+	get_child(6).play()
 	inv.add(InvItem.get_item(item_array[selected_item_id]["image_name"]))
 	inv.money-=item_array[selected_item_id]["price"]
 	update_purchase_button()
