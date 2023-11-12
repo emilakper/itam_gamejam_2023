@@ -23,6 +23,8 @@ var CurrentStairs: Stairs = null
 
 var gui: GUI
 
+var should_block_actions: bool = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_inside: bool = false
@@ -52,6 +54,7 @@ func _on_got_dialogue(line):
 	pass
 	
 func _ready():
+	State.cops_arrived.connect(_on_cops_arrived)
 	gui = get_tree().current_scene.find_children("*", "GUI")[0]
 	DialogueManager.connect("got_dialogue", _on_got_dialogue)
 	cops_timer.connect("cops_arrived", _on_cops_arrived)
@@ -70,7 +73,7 @@ func _on_minigame_start() -> void:
 	block_input()
 	
 func _on_cops_arrived():
-	get_tree().quit()
+	should_block_actions = true
 	
 func _on_minigame_end(reward) -> void:
 	unblock_input()
@@ -152,9 +155,10 @@ func _process(_delta):
 		enter_door()
 	if Input.is_action_just_pressed("LeaveDoor") and $DoorPopup.visible and is_inside:
 		exit_door()
+		
 	# Change a bit
 	# maybe move it later
-	if Input.is_action_just_pressed("EnterDoor") and $MinigamePopup.visible and CurrentMinigame != null:
+	if not should_block_actions and Input.is_action_just_pressed("EnterDoor") and $MinigamePopup.visible and CurrentMinigame != null:
 		CurrentMinigame.start_minigame()
 		$MinigamePopup.hide()
 	
@@ -181,7 +185,10 @@ func show_interact_button(which_button: Interactables):
 		Interactables.DOOR:
 			popup = $DoorPopup
 		Interactables.MINIGAME:
-			popup = $MinigamePopup
+			if not should_block_actions:
+				popup = $MinigamePopup
+	if popup == null:
+		return
 	popup.show()
 	
 func hide_interact_button(which_button: Interactables):
