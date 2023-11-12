@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="itam_gamejam"
-run/main_scene="res://Levels/1lvl.tscn"
+run/main_scene="res://UI/Main Menu/menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,7 @@ State="*res://state.gd"
 Music="*res://Music/music.gd"
 MinigamesSettings="*res://Objects/Minigames/MinigamesSettings.gd"
 CopsArrivalTimer="res://Objects/CopsArrival.gd"
+MusicController="*res://musicConroller/MusicController.tscn"
 
 [editor_plugins]
 
