@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Inv" load_steps=8 format=3 uid="uid://dkoio7xyiena8"]
+
+[ext_resource type="Script" path="res://inventory/inv.gd" id="1_aofla"]
+[ext_resource type="Script" path="res://inventory/inv_slot.gd" id="2_ypycj"]
+
+[sub_resource type="Resource" id="Resource_x3l02"]
+script = ExtResource("2_ypycj")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_luxfs"]
+script = ExtResource("2_ypycj")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_2fb1t"]
+script = ExtResource("2_ypycj")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_f46ds"]
+script = ExtResource("2_ypycj")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_w5fjs"]
+script = ExtResource("2_ypycj")
+amount = 0
+
+[resource]
+script = ExtResource("1_aofla")
+slots = Array[ExtResource("2_ypycj")]([SubResource("Resource_x3l02"), SubResource("Resource_luxfs"), SubResource("Resource_2fb1t"), SubResource("Resource_f46ds"), SubResource("Resource_w5fjs")])
+money = 400.0
