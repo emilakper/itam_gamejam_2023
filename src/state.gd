@@ -10,6 +10,8 @@ var time_talked_to_officer: int = 0
 # Will work for now
 var should_leave: bool = false
 
+var current_points: int = 0
+
 func move_to_shop():
 	move_onto_other_level("res://shop/shop.tscn")
 

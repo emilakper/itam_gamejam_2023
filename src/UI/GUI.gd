@@ -43,4 +43,5 @@ func _process(delta):
 
 func apply_award(award: int):
 	CleaningProgress.value -= award
+	
 

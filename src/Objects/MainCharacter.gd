@@ -57,7 +57,10 @@ func _on_got_dialogue(line):
 	
 func _on_slot_updated(type, name):
 	if type == "use":
-		print(name)
+		match name:
+			"blood":
+				gui.apply_award(3)
+			
 
 func _ready():
 	inv.updated_slot.connect(_on_slot_updated)
