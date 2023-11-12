@@ -49,7 +49,7 @@ func __connect_signals_of_type(node_type: String, signal_name:String, handler_na
 		i.connect(signal_name, handler_name)
 
 func _on_got_dialogue(line):
-	$talkingSfx.play()
+	pass
 	
 func _ready():
 	gui = get_tree().current_scene.find_children("*", "GUI")[0]
