@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c4g3nax3ssld1"]
+[gd_scene load_steps=31 format=3 uid="uid://c4g3nax3ssld1"]
 
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_dx8la"]
 [ext_resource type="Texture2D" uid="uid://chyiovelop7un" path="res://SpriteSources/emil_textures/first_set.png" id="3_6frsa"]
@@ -20,8 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://qpptd742nqqb" path="res://Objects/Minigames/clockblood.png" id="16_lwbcx"]
 [ext_resource type="AudioStream" uid="uid://b74nydlb6tf5s" path="res://Music/cleaningsound.mp3" id="17_qm5uq"]
 [ext_resource type="Script" path="res://Objects/Lights/Twinkle.gd" id="18_uhrcs"]
-[ext_resource type="PackedScene" uid="uid://dnvrb5ml58qtu" path="res://Objects/NPCs/Officer.tscn" id="19_7c5dw"]
 [ext_resource type="PackedScene" uid="uid://dockhy0w3pjbg" path="res://UI/GUI.tscn" id="22_igfn0"]
+[ext_resource type="PackedScene" uid="uid://b4y64v8ulx7nm" path="res://dialogue_templates/actionable.tscn" id="23_d5jyr"]
+[ext_resource type="Resource" uid="uid://b7eqjaoelx06" path="res://officer.dialogue" id="23_umqui"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flvl2"]
 texture = ExtResource("4_yhhfg")
@@ -364,6 +365,9 @@ Json = "res://MinigameJson.json"
 cull_mode = 1
 polygon = PackedVector2Array(384.175, -50.2742, 386.576, -97.5764, 237.708, -97.3288, 235.307, -113.674, 74.4338, -113.674, 74.4338, -129.524, -43.2196, -130.019, -74.4338, -133.239, -74.4338, -144.383, -1145.32, -145.126, -1178.94, -130.267, -1306.19, -125.314, -1320.6, -115.903, -1464.67, -111.94, -1395.03, -97.5764, -1707.18, -95.5952, -1723.98, 76.0304, 400.982, 85.1936, 388.977, -46.807)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbnwl"]
+size = Vector2(51, 48)
+
 [node name="TEST" type="Node2D"]
 position = Vector2(0, 1)
 
@@ -518,13 +522,19 @@ script = ExtResource("18_uhrcs")
 
 [node name="Timer" type="Timer" parent="BodyLigyht2"]
 
-[node name="Officer" parent="." instance=ExtResource("19_7c5dw")]
-position = Vector2(199, 136)
-collision_layer = 0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("22_igfn0")]
 
+[node name="Exit" parent="." instance=ExtResource("23_d5jyr")]
+dialogue_resource = ExtResource("23_umqui")
+dialogue_start = "exit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(120, 226)
+shape = SubResource("RectangleShape2D_xbnwl")
+
 [connection signal="timeout" from="BodyLigyht/Timer" to="BodyLigyht" method="_on_timer_timeout"]
 [connection signal="timeout" from="BodyLigyht2/Timer" to="BodyLigyht2" method="_on_timer_timeout"]
+
+[editable path="Exit"]

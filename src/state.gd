@@ -5,6 +5,8 @@ var time_talked_to_officer: int = 0
 # Will work for now
 var should_leave: bool = false
 
+func cops_arrive():
+	print("COPS ARE ARRIVING SOON")
 
 func move_onto_other_level(level_path: String):
 	time_talked_to_officer = 0
