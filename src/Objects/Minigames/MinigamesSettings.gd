@@ -16,7 +16,8 @@ func count_max_points() -> int:
 
 func get_minigames() -> Array[Node]:
 	if (Minigames.size() == 0):
-		Minigames = get_parent().find_children("*", "Minigame")
+		
+		Minigames = get_tree().current_scene.find_children("*", "Minigame")
 		return Minigames
 	else:
 		return Minigames

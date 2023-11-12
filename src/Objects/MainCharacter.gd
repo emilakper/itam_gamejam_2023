@@ -21,7 +21,7 @@ var cops_timer: CopsTimer
 
 var CurrentStairs: Stairs = null
 
-
+var gui: GUI
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -52,6 +52,7 @@ func _on_got_dialogue(line):
 	$talkingSfx.play()
 	
 func _ready():
+	gui = get_tree().current_scene.find_children("*", "GUI")[0]
 	DialogueManager.connect("got_dialogue", _on_got_dialogue)
 	cops_timer.connect("cops_arrived", _on_cops_arrived)
 	__connect_signals_of_type("Minigame", "minigame_start", _on_minigame_start)
@@ -73,7 +74,7 @@ func _on_cops_arrived():
 	
 func _on_minigame_end(reward) -> void:
 	unblock_input()
-	$GUI.apply_award(reward)
+	gui.apply_award(reward)
 	CurrentMinigame = null
 	
 

@@ -1,10 +1,11 @@
 extends MarginContainer
 
+class_name GUI
 
 @onready
-var minigame_settings : MinigameSettings = get_parent().MGSettings
-@onready
-var cops_timer : CopsTimer = get_parent().cops_timer
+var minigame_settings : MinigameSettings = MinigamesSettings
+
+var cops_timer : CopsTimer 
 
 @onready 
 var CleaningProgress = $HBoxContainer/Bars/Bar/ProgressBar
@@ -13,6 +14,9 @@ var timer: RichTextLabel = $HBoxContainer/Bars/Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(get_tree().current_scene)
+	cops_timer = get_tree().current_scene.find_children("*", "Hero")[0].cops_timer
+	
 	timer.text += "[shake]"
 	timer.bbcode_enabled = true
 	cops_timer.start()

@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://berb6p86mq5qv"]
+[gd_scene load_steps=13 format=3 uid="uid://berb6p86mq5qv"]
 
 [ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
 [ext_resource type="PackedScene" uid="uid://qmc84n44pqd6" path="res://UI/KeyPopup.tscn" id="3_xja76"]
 [ext_resource type="FontFile" uid="uid://bpnh1p4buv50g" path="res://fonts/Roboto-Regular.ttf" id="4_hyahp"]
-[ext_resource type="PackedScene" uid="uid://dockhy0w3pjbg" path="res://UI/GUI.tscn" id="4_maq13"]
 [ext_resource type="PackedScene" uid="uid://kj1psuogtg7v" path="res://Objects/StairsChecker.tscn" id="5_hp8n4"]
 [ext_resource type="PackedScene" uid="uid://b7hm16fc6kxtn" path="res://MaksatikDid/Main character/sceleton.tscn" id="6_8s7qn"]
 [ext_resource type="PackedScene" uid="uid://b6vuso8michvn" path="res://dialogue_templates/actioanable_finder.tscn" id="7_l0nue"]
@@ -101,14 +100,6 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MinigameChecker"]
 position = Vector2(46, 45)
 shape = SubResource("RectangleShape2D_t8ldx")
-
-[node name="GUI" parent="." instance=ExtResource("4_maq13")]
-z_index = 999
-offset_left = -81.0
-offset_top = -96.0
-offset_right = 106.0
-offset_bottom = 3.00001
-scale = Vector2(0.600001, 0.600001)
 
 [node name="StairsChecker" parent="." instance=ExtResource("5_hp8n4")]
 position = Vector2(47, 46)

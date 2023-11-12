@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 State="*res://state.gd"
 Music="*res://Music/music.gd"
+MinigamesSettings="*res://Objects/Minigames/MinigamesSettings.gd"
+CopsArrivalTimer="res://Objects/CopsArrival.gd"
 
 [editor_plugins]
 
