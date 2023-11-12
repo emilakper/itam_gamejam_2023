@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://berb6p86mq5qv"]
+[gd_scene load_steps=10 format=3 uid="uid://berb6p86mq5qv"]
 
 [ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
 [ext_resource type="Texture2D" uid="uid://dhfvg8jhpyibs" path="res://icon.svg" id="2_hrw1k"]
 [ext_resource type="PackedScene" uid="uid://qmc84n44pqd6" path="res://UI/KeyPopup.tscn" id="3_xja76"]
+[ext_resource type="FontFile" uid="uid://bpnh1p4buv50g" path="res://fonts/Roboto-Regular.ttf" id="4_hyahp"]
 [ext_resource type="PackedScene" uid="uid://dockhy0w3pjbg" path="res://UI/GUI.tscn" id="4_maq13"]
 [ext_resource type="PackedScene" uid="uid://kj1psuogtg7v" path="res://Objects/StairsChecker.tscn" id="5_hp8n4"]
 
@@ -42,30 +43,54 @@ shape = SubResource("RectangleShape2D_mo5fw")
 [node name="DoorPopup" parent="." instance=ExtResource("3_xja76")]
 visible = false
 modulate = Color(1, 1, 1, 0.513726)
+z_index = 999
 offset_left = 38.0
 offset_top = 1.0
 offset_right = 52.0
 offset_bottom = 27.0
 pivot_offset = Vector2(7, 12)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_hyahp")
 
 [node name="MinigamePopup" parent="." instance=ExtResource("3_xja76")]
 visible = false
 modulate = Color(1, 1, 1, 0.513726)
+z_index = 999
 offset_left = 38.0
 offset_top = 1.0
 offset_right = 52.0
 offset_bottom = 27.0
 pivot_offset = Vector2(7, 12)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_hyahp")
 text = "W"
 
 [node name="StairsPopup" parent="." instance=ExtResource("3_xja76")]
 visible = false
 modulate = Color(1, 1, 1, 0.513726)
+z_index = 999
 offset_left = 38.0
 offset_top = 1.0
 offset_right = 52.0
 offset_bottom = 27.0
 pivot_offset = Vector2(7, 12)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("4_hyahp")
 text = "W"
 
 [node name="MinigameChecker" type="Area2D" parent="."]
@@ -78,10 +103,11 @@ shape = SubResource("RectangleShape2D_t8ldx")
 
 [node name="GUI" parent="." instance=ExtResource("4_maq13")]
 z_index = 999
-offset_left = -48.0
-offset_top = -102.0
-offset_right = 139.0
-offset_bottom = -3.0
+offset_left = -81.0
+offset_top = -96.0
+offset_right = 106.0
+offset_bottom = 3.00001
+scale = Vector2(0.600001, 0.600001)
 
 [node name="StairsChecker" parent="." instance=ExtResource("5_hp8n4")]
 position = Vector2(47, 46)

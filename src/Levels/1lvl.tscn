@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4g3nax3ssld1"]
+[gd_scene load_steps=25 format=3 uid="uid://c4g3nax3ssld1"]
 
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_dx8la"]
 [ext_resource type="Texture2D" uid="uid://chyiovelop7un" path="res://SpriteSources/emil_textures/first_set.png" id="3_6frsa"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b27ckgtd0koct" path="res://Objects/Minigames/MinigamesSettings.tscn" id="6_moaj7"]
 [ext_resource type="PackedScene" uid="uid://q5quqm7mo33h" path="res://Objects/Lights/SimplePointLight.tscn" id="7_kmikc"]
 [ext_resource type="PackedScene" uid="uid://c6dxtshvg7fm0" path="res://Block.tscn" id="8_05okk"]
+[ext_resource type="Texture2D" uid="uid://bx75j4yf85waw" path="res://Objects/Lights/lightmap.jpg" id="8_qk542"]
 [ext_resource type="PackedScene" uid="uid://c0630cy17nx8t" path="res://Objects/Minigames/BloodMinigame.tscn" id="9_pv7l3"]
 [ext_resource type="Script" path="res://Objects/Minigames/MinigameRes.gd" id="10_hdyuh"]
 [ext_resource type="Texture2D" uid="uid://c0lbe7jd2ynsm" path="res://Objects/Minigames/tumba.png" id="11_5a34v"]
@@ -16,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cybwp1quptch" path="res://Objects/Minigames/tumbablood.png" id="12_iwmfb"]
 [ext_resource type="Texture2D" uid="uid://bub8yeq58l0lw" path="res://Objects/Minigames/clock.png" id="15_q6x2v"]
 [ext_resource type="Texture2D" uid="uid://qpptd742nqqb" path="res://Objects/Minigames/clockblood.png" id="16_lwbcx"]
+[ext_resource type="Script" path="res://Objects/Lights/Twinkle.gd" id="18_uhrcs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flvl2"]
 texture = ExtResource("4_yhhfg")
@@ -348,24 +350,17 @@ physics_layer_1/collision_layer = 32
 physics_layer_1/collision_mask = 32
 sources/0 = SubResource("TileSetAtlasSource_4s8if")
 
-[sub_resource type="Gradient" id="Gradient_cuohp"]
-offsets = PackedFloat32Array(0.0564516, 0.725806)
-colors = PackedColorArray(0.866336, 0.386901, 0.116532, 1, 0.223529, 0.172549, 0.262745, 0.588235)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6dgdw"]
-gradient = SubResource("Gradient_cuohp")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.824786, 0.25641)
-
 [sub_resource type="Resource" id="Resource_qm6ej"]
 script = ExtResource("10_hdyuh")
 TYPE = 1
 ExcludesForOverwrite = Array[int]([])
 Json = "res://MinigameJson.json"
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uhtf6"]
+cull_mode = 1
+polygon = PackedVector2Array(384.175, -50.2742, 386.576, -97.5764, 237.708, -97.3288, 235.307, -113.674, 74.4338, -113.674, 74.4338, -129.524, -43.2196, -130.019, -74.4338, -133.239, -74.4338, -144.383, -1145.32, -145.126, -1169.33, -129.772, -1308.59, -129.524, -1308.59, -113.674, -1462.26, -112.683, -1395.03, -97.5764, -1601.53, -96.5858, -1613.53, 15.6023, 374.57, 44.0827, 388.977, -46.807)
+
 [node name="TEST" type="Node2D"]
-modulate = Color(0.529412, 0.529412, 0.529412, 1)
 position = Vector2(0, 1)
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("Background", "Foreground", "MGSettings", "cops_timer") instance=ExtResource("2_dx8la")]
@@ -393,11 +388,6 @@ tile_set = SubResource("TileSet_ixjb4")
 format = 2
 layer_0/tile_data = PackedInt32Array(262147, 65536, 1, 262146, 65536, 1, 262145, 196608, 1, 262144, 196608, 1, 327682, 0, 2, 393219, 0, 2, 393216, 0, 2, 458754, 0, 2, 458753, 0, 2, 458752, 0, 3, 393217, 0, 3, 393218, 0, 3, 458755, 0, 3, 327683, 0, 3, 327681, 0, 3, 327680, 0, 3, 327684, 0, 3, 262148, 65536, 1, 196609, 196608, 2, 196612, 262144, 1, 131076, 262144, 0, 65540, 196608, 0, 4, 196608, 0)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-light_mask = 2
-visibility_layer = 2
-color = Color(1, 1, 1, 0.913725)
-
 [node name="Stairs" parent="." node_paths=PackedStringArray("OtherSide") instance=ExtResource("4_40xd6")]
 position = Vector2(991, 196)
 OtherSide = NodePath("../Stairs2")
@@ -410,16 +400,13 @@ OtherSide = NodePath("../Stairs")
 
 [node name="MinigamesSettings" parent="." instance=ExtResource("6_moaj7")]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-scale = Vector2(93.7701, 169.041)
-color = Color(0.223529, 0.172549, 0.262745, 1)
-
 [node name="SimplePointLight" parent="." instance=ExtResource("7_kmikc")]
-visible = false
-position = Vector2(416, 203)
-energy = 0.5
-texture = SubResource("GradientTexture2D_6dgdw")
-texture_scale = 1.64
+position = Vector2(417, 200)
+color = Color(0.462745, 0, 0.482353, 1)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_item_cull_mask = 3
+texture = ExtResource("8_qk542")
 
 [node name="BlockInsideDoor" parent="." node_paths=PackedStringArray("hero") instance=ExtResource("8_05okk")]
 visible = false
@@ -479,3 +466,48 @@ ClearedSpriteTexture = NodePath("../ClockCleared")
 [node name="Base" type="Sprite2D" parent="ClockMinigame"]
 position = Vector2(1, 3)
 texture = ExtResource("16_lwbcx")
+
+[node name="DirectionalLight2D2" type="DirectionalLight2D" parent="."]
+top_level = true
+position = Vector2(0, -117)
+rotation = -0.607375
+skew = 0.322886
+color = Color(0.929412, 0.427451, 0.509804, 1)
+energy = 1.25
+blend_mode = 1
+range_z_max = 119
+shadow_enabled = true
+shadow_filter_smooth = 64.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+z_index = 4096
+position = Vector2(417, 200)
+scale = Vector2(-0.416477, 4.03786)
+occluder = SubResource("OccluderPolygon2D_uhtf6")
+
+[node name="BodyLigyht" parent="." instance=ExtResource("7_kmikc")]
+position = Vector2(345, -19)
+scale = Vector2(0.361328, 0.361328)
+color = Color(1, 0, 0, 1)
+energy = 1.49
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("8_qk542")
+script = ExtResource("18_uhrcs")
+
+[node name="Timer" type="Timer" parent="BodyLigyht"]
+
+[node name="BodyLigyht2" parent="." instance=ExtResource("7_kmikc")]
+position = Vector2(399, -15)
+scale = Vector2(0.361328, 0.361328)
+color = Color(1, 0, 0, 1)
+energy = 1.49
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("8_qk542")
+script = ExtResource("18_uhrcs")
+
+[node name="Timer" type="Timer" parent="BodyLigyht2"]
+
+[connection signal="timeout" from="BodyLigyht/Timer" to="BodyLigyht" method="_on_timer_timeout"]
+[connection signal="timeout" from="BodyLigyht2/Timer" to="BodyLigyht2" method="_on_timer_timeout"]

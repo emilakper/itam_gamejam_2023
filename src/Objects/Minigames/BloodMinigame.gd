@@ -123,7 +123,6 @@ func _on_minigame_end(reward):
 
 func _on_free_timer_timeout():
 	queue_free()
-	# ClearedSpriteTexture.show()
 
 
 func _on_minigame_start():
