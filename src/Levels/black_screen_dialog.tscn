@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://s28rntpf48pt"]
+[gd_scene load_steps=5 format=3 uid="uid://s28rntpf48pt"]
 
 [ext_resource type="Script" path="res://Levels/black_screen_dialog.gd" id="1_ogk5n"]
+[ext_resource type="PackedScene" uid="uid://b4y64v8ulx7nm" path="res://dialogue_templates/actionable.tscn" id="2_hqi83"]
+[ext_resource type="Resource" uid="uid://k5l4xgbioant" path="res://boss_speaking.dialogue" id="3_owik5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vdli"]
 
 [node name="black_screen_dialog" type="Node2D"]
 script = ExtResource("1_ogk5n")
+
+[node name="Actionable" parent="." instance=ExtResource("2_hqi83")]
+dialogue_resource = ExtResource("3_owik5")
+dialogue_start = "talk_to_boss"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+shape = SubResource("CircleShape2D_0vdli")
