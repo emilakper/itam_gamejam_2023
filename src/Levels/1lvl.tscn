@@ -411,7 +411,7 @@ position = Vector2(992, 3)
 OtherSide = NodePath("../Stairs")
 
 [node name="CopsArrival" parent="." instance=ExtResource("5_t4fs1")]
-base_wait_time = 15
+base_wait_time = 80
 
 [node name="MinigamesSettings" parent="." instance=ExtResource("6_moaj7")]
 
