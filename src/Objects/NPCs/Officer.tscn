@@ -22,6 +22,8 @@ position = Vector2(29, 50.5)
 shape = SubResource("RectangleShape2D_yfodu")
 
 [node name="Actionable" parent="." instance=ExtResource("3_yv8gk")]
+monitoring = false
+monitorable = false
 dialogue_resource = ExtResource("4_5vfps")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]

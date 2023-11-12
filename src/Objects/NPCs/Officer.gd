@@ -8,6 +8,8 @@ func _ready():
 
 
 func _on_cops_arrived():
+	$Actionable.monitoring = true
+	$Actionable.monitorable = true
 	show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
