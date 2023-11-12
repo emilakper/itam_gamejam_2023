@@ -19,6 +19,9 @@ var MGSettings: MinigameSettings
 @export
 var cops_timer: CopsTimer
 
+
+
+
 var CurrentStairs: Stairs = null
 
 var gui: GUI
@@ -37,7 +40,7 @@ const COLLISION_OUTSIDE_LAYER : int = pow(2, 1)
 const COLLISION_INSIDE_LAYER : int = pow(2, 2) 
 const COLLISION_HERO_LAYER : int = 256
 
-
+@onready var inv : Inv = preload("res://inventory/global_inventory.tres")
 
 var CurrentMinigame: Minigame = null
 
@@ -53,6 +56,8 @@ func _on_got_dialogue(line):
 	pass
 	
 func _ready():
+	inv.add(InvItem.get_item("blood"))
+	
 	$character.get_node("Animations").queue("idle")
 	State.cops_arrived.connect(_on_cops_arrived)
 	gui = get_tree().current_scene.find_children("*", "GUI")[0]
