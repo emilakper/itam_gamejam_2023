@@ -9,7 +9,9 @@ func update(item : InvSlot):
 		item_amount_visual.visible=false
 	else:
 		item_visual.visible=true
+		item_visual.global_scale=Vector2(0.2,0.2)
+		item_visual.centered=true
 		item_amount_visual.visible=true
-		item_visual.texute=item.item.texture
+		item_visual.texture=item.item.texture
 		item_amount_visual.text=str(item.amount)
 		
