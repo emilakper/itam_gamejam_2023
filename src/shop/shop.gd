@@ -2,11 +2,8 @@ extends Control
 
 signal purchased_item(item_name);
 
-func get_money_val() -> float:
-	return 500
-	
-func set_money_val(val : float):
-	pass
+@onready var inv : Inv = preload("res://inventory/global_inventory.tres")
+
 
 func _on_leave_button_pressed():
 	State.move_onto_other_level("res://Levels/1lvl.tscn")
@@ -16,16 +13,14 @@ var item_array
 var money : float
 var selected_item_id : int
 
-func _enter_tree():
+func _ready():
 	load_items()
-	money=get_money_val()
 	get_child(0).select(0)
 	_on_item_list_item_selected(0)
 	update_purchase_button()
 	update_balance_text()
 	
-func _exit_tree():
-	set_money_val(money)
+
 
 func load_items():
 	var file = FileAccess.open("res://shop/shop_tems.json", FileAccess.READ)
@@ -36,10 +31,10 @@ func load_items():
 		item_list.add_item(item["name"])
 
 func update_purchase_button():
-	get_child(2).disabled= not money>=item_array[selected_item_id]["price"]
+	get_child(2).disabled= not inv.money>=item_array[selected_item_id]["price"]
 
 func update_balance_text():
-	get_child(3).text="Balance:  $" + str(money)
+	get_child(3).text="Balance:  $" + str(inv.money)
 		
 
 
@@ -64,7 +59,8 @@ func _on_item_list_item_selected(index):
 
 func purchase_item():
 	emit_signal("purchased_item", item_array[selected_item_id]["image_name"])
-	money-=item_array[selected_item_id]["price"]
+	inv.add(InvItem.get_item(item_array[selected_item_id]["image_name"]))
+	inv.money-=item_array[selected_item_id]["price"]
 	update_purchase_button()
 	update_balance_text()
 
