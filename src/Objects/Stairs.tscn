@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://byk0u65qje2c5"]
+[gd_scene load_steps=4 format=3 uid="uid://byk0u65qje2c5"]
 
 [ext_resource type="Script" path="res://Objects/Stairs.gd" id="1_ljscn"]
+[ext_resource type="AudioStream" uid="uid://b8yri1u7boxva" path="res://Music/stairssound.mp3" id="2_kcsjj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c8g8"]
 
@@ -12,3 +13,6 @@ script = ExtResource("1_ljscn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3c8g8")
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kcsjj")

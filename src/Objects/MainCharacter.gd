@@ -47,8 +47,12 @@ func __connect_signals_of_type(node_type: String, signal_name:String, handler_na
 	var nodes: Array[Node] = get_parent().find_children("*", node_type)
 	for i in nodes:
 		i.connect(signal_name, handler_name)
-		
+
+func _on_got_dialogue(line):
+	$talkingSfx.play()
+	
 func _ready():
+	DialogueManager.connect("got_dialogue", _on_got_dialogue)
 	cops_timer.connect("cops_arrived", _on_cops_arrived)
 	__connect_signals_of_type("Minigame", "minigame_start", _on_minigame_start)
 	__connect_signals_of_type("Minigame", "minigame_end", _on_minigame_end)
@@ -96,6 +100,7 @@ func set_collisions_to(masks: int) -> void:
 	
 	
 func enter_door():
+	$doorPlayer.play()
 	Foreground.modulate = darken_foreground(Foreground, 0.25)
 	set_collisions_to(COLLISION_INSIDE_LAYER | COLLISION_BASE_LAYER)
 	$DoorPopup.hide()
@@ -105,6 +110,7 @@ func enter_door():
 	emit_signal("entered_door") 
 
 func exit_door():
+	$doorPlayer.play()
 	# wtf?? Why is it not 0.5 huh???? Ok.
 	Foreground.modulate = lighten_foreground(Foreground, 1)
 	set_collisions_to(COLLISION_OUTSIDE_LAYER | COLLISION_BASE_LAYER)

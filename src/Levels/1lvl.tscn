@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c4g3nax3ssld1"]
+[gd_scene load_steps=28 format=3 uid="uid://c4g3nax3ssld1"]
 
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_dx8la"]
 [ext_resource type="Texture2D" uid="uid://chyiovelop7un" path="res://SpriteSources/emil_textures/first_set.png" id="3_6frsa"]
@@ -16,7 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://d0w13uhf0o3gt" path="res://Objects/Minigames/bodyfloor.png" id="12_02d2l"]
 [ext_resource type="Texture2D" uid="uid://cybwp1quptch" path="res://Objects/Minigames/tumbablood.png" id="12_iwmfb"]
 [ext_resource type="Texture2D" uid="uid://bub8yeq58l0lw" path="res://Objects/Minigames/clock.png" id="15_q6x2v"]
+[ext_resource type="AudioStream" uid="uid://0xo6hxeb2h12" path="res://Music/bodycleaningsound.mp3" id="15_vd3yy"]
 [ext_resource type="Texture2D" uid="uid://qpptd742nqqb" path="res://Objects/Minigames/clockblood.png" id="16_lwbcx"]
+[ext_resource type="AudioStream" uid="uid://b74nydlb6tf5s" path="res://Music/cleaningsound.mp3" id="17_qm5uq"]
 [ext_resource type="Script" path="res://Objects/Lights/Twinkle.gd" id="18_uhrcs"]
 [ext_resource type="PackedScene" uid="uid://dnvrb5ml58qtu" path="res://Objects/NPCs/Officer.tscn" id="19_7c5dw"]
 
@@ -446,6 +448,7 @@ Settings = SubResource("Resource_qm6ej")
 reward = 4
 BaseSpriteTexture = NodePath("Base")
 ClearedSpriteTexture = NodePath("../BodyCleared")
+SFX = ExtResource("15_vd3yy")
 
 [node name="Base" type="Sprite2D" parent="BodyMinigame"]
 position = Vector2(6, 36)
@@ -456,6 +459,7 @@ position = Vector2(416, 187)
 reward = 1
 BaseSpriteTexture = NodePath("Base")
 ClearedSpriteTexture = NodePath("../VaseCleared")
+SFX = ExtResource("17_qm5uq")
 
 [node name="Base" type="Sprite2D" parent="VaseMinigame"]
 position = Vector2(-1, 36)
@@ -466,6 +470,7 @@ position = Vector2(865, -4)
 reward = 1
 BaseSpriteTexture = NodePath("Base")
 ClearedSpriteTexture = NodePath("../ClockCleared")
+SFX = ExtResource("17_qm5uq")
 
 [node name="Base" type="Sprite2D" parent="ClockMinigame"]
 position = Vector2(1, 3)

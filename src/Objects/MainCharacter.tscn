@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://berb6p86mq5qv"]
+[gd_scene load_steps=14 format=3 uid="uid://berb6p86mq5qv"]
 
 [ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
 [ext_resource type="PackedScene" uid="uid://qmc84n44pqd6" path="res://UI/KeyPopup.tscn" id="3_xja76"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://kj1psuogtg7v" path="res://Objects/StairsChecker.tscn" id="5_hp8n4"]
 [ext_resource type="PackedScene" uid="uid://b7hm16fc6kxtn" path="res://MaksatikDid/Main character/sceleton.tscn" id="6_8s7qn"]
 [ext_resource type="PackedScene" uid="uid://b6vuso8michvn" path="res://dialogue_templates/actioanable_finder.tscn" id="7_l0nue"]
+[ext_resource type="AudioStream" uid="uid://cciudd4mm4dnv" path="res://Music/doorsound.mp3" id="8_p1her"]
+[ext_resource type="AudioStream" uid="uid://ddf43jvf6kqfy" path="res://Music/speakingsound.mp3" id="9_cxw3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdbyy"]
 size = Vector2(37, 34)
@@ -120,6 +122,12 @@ scale = Vector2(0.176235, 0.176235)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActioanableFinder"]
 position = Vector2(47.5, 13)
 shape = SubResource("RectangleShape2D_s274g")
+
+[node name="doorPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_p1her")
+
+[node name="talkingSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_cxw3u")
 
 [connection signal="body_entered" from="DoorChecker" to="." method="_on_door_checker_body_entered"]
 [connection signal="body_exited" from="DoorChecker" to="." method="_on_door_checker_body_exited"]

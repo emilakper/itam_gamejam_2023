@@ -11,6 +11,7 @@ var OtherSide: Stairs
 #var hero: Hero = get_parent().find_children("*", "Hero")[0]
 
 func teleport_to_other_side(object: Node2D) -> void:
+	$sfx.play()
 	var hitbox: CollisionShape2D = OtherSide.get_node("CollisionShape2D")
 	object.position = OtherSide.position - hitbox.shape.size
 

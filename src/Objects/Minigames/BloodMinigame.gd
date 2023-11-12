@@ -26,10 +26,13 @@ var BaseSpriteTexture: Sprite2D
 @export
 var ClearedSpriteTexture: Sprite2D
 
+@export
+var SFX: AudioStreamMP3
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$SFXPlayer.stream = SFX
 	ClearedSpriteTexture.hide()
 	BaseSpriteTexture.show()
 	Settings.parse()
@@ -42,9 +45,6 @@ func _process(delta):
 	current_text = Settings.keycodes[CurrentlyActiveLineIndex]
 	if not is_active:
 		return
-	
-	
-	
 
 func start_minigame():
 	emit_signal("minigame_start")
@@ -93,6 +93,7 @@ func queue_stuff(scancode):
 				is_active = false
 				minigame_end.emit(reward)
 		else:
+			$ErrorSFXPlayer.play()
 			recolor_character(characters_yet_achived, false)
 	else:
 		is_active = false
@@ -118,6 +119,7 @@ func _on_area_exited(area):
 
 func _on_minigame_end(reward):
 	$FreeTimer.start()
+	$SFXPlayer.play()
 	ClearedSpriteTexture.show()
 	BaseSpriteTexture.hide()
 
@@ -126,4 +128,4 @@ func _on_free_timer_timeout():
 
 
 func _on_minigame_start():
-	pass # Replace with function body.
+	pass
