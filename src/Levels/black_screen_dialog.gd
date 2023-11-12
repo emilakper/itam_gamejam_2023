@@ -5,3 +5,9 @@ func _draw():
 
 func _ready():
 	_draw()
+	DialogueManager.dialogue_ended.connect(_on_boss_dialog_ended)
+	get_child(0).action()
+	
+	
+func _on_boss_dialog_ended(resource):
+	print("leave scene")
