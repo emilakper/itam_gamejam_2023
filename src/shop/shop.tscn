@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5w80tm13jp3f"]
+[gd_scene load_steps=4 format=3 uid="uid://b5w80tm13jp3f"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_jdxp4"]
+[ext_resource type="AudioStream" uid="uid://bginbydkmx0jl" path="res://Music/buyingsound.mp3" id="2_8xmcy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qanhs"]
 bg_color = Color(0.215465, 0.215462, 0.220104, 1)
@@ -70,6 +71,9 @@ layout_mode = 2
 
 [node name="Item" type="Sprite2D" parent="CenterContainer/Panel"]
 scale = Vector2(0.5, 0.5)
+
+[node name="PurchaseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8xmcy")
 
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Buy" to="." method="purchase_item"]
