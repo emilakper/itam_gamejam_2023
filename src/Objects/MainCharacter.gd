@@ -55,10 +55,14 @@ func __connect_signals_of_type(node_type: String, signal_name:String, handler_na
 func _on_got_dialogue(line):
 	pass
 	
+func _on_slot_updated(type, name):
+	if type == "use":
+		print(name)
 
 func _ready():
-
+	inv.updated_slot.connect(_on_slot_updated)
 	inv.add(InvItem.get_item("blood"))
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	
 	$character.get_node("Animations").queue("idle")
 	State.cops_arrived.connect(_on_cops_arrived)
@@ -161,6 +165,9 @@ func _process(_delta):
 	if State.should_leave:
 		State.move_onto_other_level("res://shop/shop.tscn")
 	
+	if Input.is_action_pressed("inventory_pressed_1"):
+		inv.use(InvItem.get_item("blood"))
+	
 	if should_block_input:
 		return
 	if Input.is_action_pressed("EnterDoor") and $DoorPopup.visible and not is_inside:
@@ -225,3 +232,10 @@ func _on_stairs_checker_area_exited(area):
 	CurrentStairs = null
 	$StairsPopup.hide()
 
+
+
+func _on_actioanable_finder_dialogue_started(resource):
+	should_block_input = true
+	
+func _on_dialogue_ended(res):
+	should_block_input = false

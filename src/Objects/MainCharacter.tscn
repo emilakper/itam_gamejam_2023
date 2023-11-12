@@ -124,6 +124,7 @@ scale = Vector2(0.176, 0.176)
 [connection signal="body_exited" from="DoorChecker" to="." method="_on_door_checker_body_exited"]
 [connection signal="area_entered" from="StairsChecker" to="." method="_on_stairs_checker_area_entered"]
 [connection signal="area_exited" from="StairsChecker" to="." method="_on_stairs_checker_area_exited"]
+[connection signal="dialogue_started" from="ActioanableFinder" to="." method="_on_actioanable_finder_dialogue_started"]
 
 [editable path="StairsChecker"]
 [editable path="character"]
