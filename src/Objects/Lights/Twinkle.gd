@@ -18,5 +18,4 @@ func _on_timer_timeout():
 		enabled = false
 	else:
 		enabled = true
-	print(time)
 	$Timer.start(time)
