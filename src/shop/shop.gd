@@ -9,7 +9,7 @@ func set_money_val(val : float):
 	pass
 
 func _on_leave_button_pressed():
-	print("leaving shop")
+	State.move_onto_other_level("res://Levels/1lvl.tscn")
 
 
 var item_array

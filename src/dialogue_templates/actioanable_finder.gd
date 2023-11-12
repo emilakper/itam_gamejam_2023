@@ -10,9 +10,12 @@ func _on_dialogue_ended(resource):
 func find_actions() -> void:
 	var actionables=get_overlapping_areas()
 	if actionables.size()>0:
-		actionables[0].action()
-		print("dialogue started")
-		dialogue_free=false
+		for i in actionables:
+			if i is Actionable:
+				i.action()
+				print("dialogue started")
+				dialogue_free=false
+				break
 
 func _process(delta):
 	if Input.is_action_just_pressed("Speak") and dialogue_free==true:

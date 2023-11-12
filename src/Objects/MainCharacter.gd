@@ -6,6 +6,8 @@ signal entered_door
 signal exited_door
 
 
+signal dialogue_initiated
+
 @export
 var speed : float = 300.0
 @export 
@@ -94,7 +96,7 @@ func set_collisions_to(masks: int) -> void:
 	
 	
 func enter_door():
-	Foreground.modulate = darken_foreground(Foreground, 0.5)
+	Foreground.modulate = darken_foreground(Foreground, 0.25)
 	set_collisions_to(COLLISION_INSIDE_LAYER | COLLISION_BASE_LAYER)
 	$DoorPopup.hide()
 	$DoorPopup.text = "S"
@@ -134,6 +136,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(_delta):
+	if State.should_leave:
+		State.move_onto_other_level("res://shop/shop.tscn")
+	
 	if should_block_input:
 		return
 	if Input.is_action_pressed("EnterDoor") and $DoorPopup.visible and not is_inside:
@@ -191,3 +196,4 @@ func _on_stairs_checker_area_entered(area: Stairs):
 func _on_stairs_checker_area_exited(area):
 	CurrentStairs = null
 	$StairsPopup.hide()
+

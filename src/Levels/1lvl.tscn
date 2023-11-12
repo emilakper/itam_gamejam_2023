@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c4g3nax3ssld1"]
+[gd_scene load_steps=26 format=3 uid="uid://c4g3nax3ssld1"]
 
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_dx8la"]
 [ext_resource type="Texture2D" uid="uid://chyiovelop7un" path="res://SpriteSources/emil_textures/first_set.png" id="3_6frsa"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bub8yeq58l0lw" path="res://Objects/Minigames/clock.png" id="15_q6x2v"]
 [ext_resource type="Texture2D" uid="uid://qpptd742nqqb" path="res://Objects/Minigames/clockblood.png" id="16_lwbcx"]
 [ext_resource type="Script" path="res://Objects/Lights/Twinkle.gd" id="18_uhrcs"]
+[ext_resource type="PackedScene" uid="uid://dnvrb5ml58qtu" path="res://Objects/NPCs/Officer.tscn" id="19_7c5dw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flvl2"]
 texture = ExtResource("4_yhhfg")
@@ -510,6 +511,10 @@ texture = ExtResource("8_qk542")
 script = ExtResource("18_uhrcs")
 
 [node name="Timer" type="Timer" parent="BodyLigyht2"]
+
+[node name="Officer" parent="." instance=ExtResource("19_7c5dw")]
+position = Vector2(199, 136)
+collision_layer = 0
 
 [connection signal="timeout" from="BodyLigyht/Timer" to="BodyLigyht" method="_on_timer_timeout"]
 [connection signal="timeout" from="BodyLigyht2/Timer" to="BodyLigyht2" method="_on_timer_timeout"]

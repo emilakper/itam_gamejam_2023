@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://berb6p86mq5qv"]
+[gd_scene load_steps=12 format=3 uid="uid://berb6p86mq5qv"]
 
 [ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
 [ext_resource type="PackedScene" uid="uid://qmc84n44pqd6" path="res://UI/KeyPopup.tscn" id="3_xja76"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dockhy0w3pjbg" path="res://UI/GUI.tscn" id="4_maq13"]
 [ext_resource type="PackedScene" uid="uid://kj1psuogtg7v" path="res://Objects/StairsChecker.tscn" id="5_hp8n4"]
 [ext_resource type="PackedScene" uid="uid://b7hm16fc6kxtn" path="res://MaksatikDid/Main character/sceleton.tscn" id="6_8s7qn"]
+[ext_resource type="PackedScene" uid="uid://b6vuso8michvn" path="res://dialogue_templates/actioanable_finder.tscn" id="7_l0nue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdbyy"]
 size = Vector2(37, 34)
@@ -15,12 +16,15 @@ size = Vector2(20, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8ldx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s274g"]
+size = Vector2(33, 96)
+
 [node name="MainCharacter" type="CharacterBody2D"]
 light_mask = 3
 visibility_layer = 3
 z_index = 100
 collision_layer = 259
-collision_mask = 259
+collision_mask = 771
 script = ExtResource("1_1gw75")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -110,6 +114,12 @@ position = Vector2(47, 46)
 [node name="character" parent="." instance=ExtResource("6_8s7qn")]
 position = Vector2(-38, -44)
 scale = Vector2(0.176235, 0.176235)
+
+[node name="ActioanableFinder" parent="." instance=ExtResource("7_l0nue")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActioanableFinder"]
+position = Vector2(47.5, 13)
+shape = SubResource("RectangleShape2D_s274g")
 
 [connection signal="body_entered" from="DoorChecker" to="." method="_on_door_checker_body_entered"]
 [connection signal="body_exited" from="DoorChecker" to="." method="_on_door_checker_body_exited"]

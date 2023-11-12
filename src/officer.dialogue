@@ -1,0 +1,18 @@
+~ start
+
+if State.time_talked_to_officer == 0:
+	Офицер: Солнце светит негры пашут
+	Офицер: Вот такая доля наша
+	set State.time_talked_to_officer = 1
+elif State.time_talked_to_officer == 1:
+	Офицер: Хочешь уже уйти? Пф.
+	- Уйти
+		set State.should_leave = true
+		Офицер: Ну и скатертью дорожка.
+	- Остаться
+		Офицер: Не говори больше со мной.
+		set State.time_talked_to_officer = State.time_talked_to_officer + 1
+else:
+	Офицер: ...
+	[Вряд ли он передумает...]
+=> END
