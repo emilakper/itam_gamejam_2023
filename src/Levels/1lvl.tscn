@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c4g3nax3ssld1"]
+[gd_scene load_steps=38 format=3 uid="uid://c4g3nax3ssld1"]
 
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_dx8la"]
 [ext_resource type="Texture2D" uid="uid://chyiovelop7un" path="res://SpriteSources/emil_textures/first_set.png" id="3_6frsa"]
@@ -381,6 +381,60 @@ polygon = PackedVector2Array(384.175, -50.2742, 386.576, -97.5764, 237.708, -97.
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbnwl"]
 size = Vector2(51, 48)
 
+[sub_resource type="Animation" id="Animation_hbrwc"]
+resource_name = "fadein"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8gtbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tv1ad"]
+resource_name = "fadeout"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8ndx"]
+_data = {
+"RESET": SubResource("Animation_8gtbs"),
+"fadein": SubResource("Animation_hbrwc"),
+"fadeout": SubResource("Animation_tv1ad")
+}
+
 [node name="TEST" type="Node2D"]
 position = Vector2(0, 1)
 
@@ -561,6 +615,17 @@ z_index = -1100
 position = Vector2(664.125, 51.6875)
 scale = Vector2(1.17017, 1.00065)
 texture = ExtResource("22_g15yy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -19.0
+offset_right = 1152.0
+offset_bottom = 515.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_y8ndx")
+}
 
 [connection signal="timeout" from="BodyLigyht/Timer" to="BodyLigyht" method="_on_timer_timeout"]
 
