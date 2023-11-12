@@ -6,7 +6,7 @@ var time_talked_to_officer: int = 0
 var should_leave: bool = false
 
 func cops_arrive():
-	print("COPS ARE ARRIVING SOON")
+	get_tree().current_scene.find_children("*", "Officer")[0].show()
 
 func move_onto_other_level(level_path: String):
 	time_talked_to_officer = 0
