@@ -1,42 +1,12 @@
 [
 		{
-			"name": "first item",
-			"description": "description for the first item",
+			"name": "Мешочек Крови",
+			"description": "Простой и безобидный :)\n\nПозволит запутать полицию, сняв немного улик.",
 			"price": 400
 		},
 		{
-			"name": "second item",
-			"description": "description for the second item",
+			"name": "Мешочек Волос",
+			"description": "С кого это мы их сняли?\n\nСнимает много улик.",
 			"price": 707
-		},
-		{
-			"name": "second item",
-			"description": "description for the second item",
-			"price": 707
-		},
-		{
-			"name": "second item",
-			"description": "description for the second item",
-			"price": 707
-		},
-		{
-			"name": "second item",
-			"description": "description for the second item",
-			"price": 707
-		},
-		{
-			"name": "second item",
-			"description": "description for the second item",
-			"price": 707
-		},
-		{
-			"name": "second item",
-			"description": "description for the second item",
-			"price": 707
-		},
-		{
-			"name": "second item",
-			"description": "description for the second item",
-			"price": 707
-		},
+		}
 ]
