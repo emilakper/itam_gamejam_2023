@@ -51,6 +51,7 @@ func _on_item_list_item_selected(index):
 	update_purchase_button()
 	var description_window=get_child(1)
 	var item=item_array[index]
+	$CenterContainer/Panel/Item.texture=load("res://item_images/"+item["image_name"] + ".png")
 	description_window.clear()
 	description_window.push_italics()
 	description_window.push_font_size(26)
@@ -62,11 +63,9 @@ func _on_item_list_item_selected(index):
 
 
 func purchase_item():
-	emit_signal("purchased_item", item_array[selected_item_id]["name"])
+	emit_signal("purchased_item", item_array[selected_item_id]["image_name"])
 	money-=item_array[selected_item_id]["price"]
 	update_purchase_button()
 	update_balance_text()
 
 
-func _on_purchased_item(item_name):
-	print(item_name+ " is purchased")

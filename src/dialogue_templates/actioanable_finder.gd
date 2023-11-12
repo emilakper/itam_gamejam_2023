@@ -1,10 +1,13 @@
 extends Area2D
+
 var dialogue_free=true
+
+signal dialogue_started(resource)
+
 func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	
 func _on_dialogue_ended(resource):
-	print(resource)
 	dialogue_free=true
 
 func find_actions() -> void:
@@ -13,7 +16,7 @@ func find_actions() -> void:
 		for i in actionables:
 			if i is Actionable:
 				i.action()
-				print("dialogue started")
+				emit_signal("dialogue_started",i.dialogue_resource)
 				dialogue_free=false
 				break
 
