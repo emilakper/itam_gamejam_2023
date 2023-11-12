@@ -55,7 +55,9 @@ func __connect_signals_of_type(node_type: String, signal_name:String, handler_na
 func _on_got_dialogue(line):
 	pass
 	
+
 func _ready():
+
 	inv.add(InvItem.get_item("blood"))
 	
 	$character.get_node("Animations").queue("idle")

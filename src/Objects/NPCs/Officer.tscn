@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnvrb5ml58qtu"]
+[gd_scene load_steps=8 format=3 uid="uid://dnvrb5ml58qtu"]
 
 [ext_resource type="Script" path="res://Objects/NPCs/Officer.gd" id="1_w2ufr"]
 [ext_resource type="PackedScene" uid="uid://b4y64v8ulx7nm" path="res://dialogue_templates/actionable.tscn" id="3_yv8gk"]
 [ext_resource type="Resource" uid="uid://b7eqjaoelx06" path="res://officer.dialogue" id="4_5vfps"]
 [ext_resource type="PackedScene" uid="uid://d3raq5y2x3m28" path="res://MaksatikTg/officer/officer.tscn" id="4_bpv28"]
+[ext_resource type="AudioStream" uid="uid://ddf43jvf6kqfy" path="res://Music/speakingsound.mp3" id="5_cygpq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfodu"]
 size = Vector2(34, 93)
@@ -48,5 +49,8 @@ scale = Vector2(0.499999, 0.499999)
 
 [node name="handR" parent="officer/hip/body/armR" index="0"]
 scale = Vector2(1.2, 1.2)
+
+[node name="SpeakingSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_cygpq")
 
 [editable path="officer"]
