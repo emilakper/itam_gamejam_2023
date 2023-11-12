@@ -9,12 +9,22 @@
 
 [sub_resource type="GDScript" id="GDScript_put0g"]
 script/source = "extends Skeleton2D
+class_name CharacterSkeleton
+
 @onready var bone = $hip
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var flag = true
-	if (Input.is_action_just_pressed(\"MoveRight\")):
-		bone.apply_scale(Vector2(-1, 1))
+@onready var anims = $AnimationPlayer
+
+
+
+func flip():
+	bone.apply_scale(Vector2(-1, 1))
+
+func facing_right():
+	return bone.scale.x < 0
+	
+func facing_left():
+	return bone.scale.x >= 1
+
 "
 
 [sub_resource type="Animation" id="Animation_tubc0"]

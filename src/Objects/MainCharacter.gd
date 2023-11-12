@@ -33,7 +33,8 @@ const COLLISION_OUTSIDE_LAYER : int = pow(2, 1)
 const COLLISION_INSIDE_LAYER : int = pow(2, 2) 
 const COLLISION_HERO_LAYER : int = 256
 
-
+@onready
+var SkeletonAnims: AnimationPlayer = $character.anims
 
 var CurrentMinigame: Minigame = null
 
@@ -49,6 +50,8 @@ func _ready():
 	cops_timer.connect("cops_arrived", _on_cops_arrived)
 	__connect_signals_of_type("Minigame", "minigame_start", _on_minigame_start)
 	__connect_signals_of_type("Minigame", "minigame_end", _on_minigame_end)
+	SkeletonAnims.queue("idle")
+	
 	
 func block_input() -> void:
 	should_block_input = true
@@ -124,6 +127,10 @@ func _physics_process(delta):
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+	if direction == 1 and $character.facing_left():
+		$character.flip()
+	elif direction == -1 and $character.facing_right():
+		$character.flip()
 	move_and_slide()
 
 func _process(_delta):
