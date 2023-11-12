@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://b78nmta87loqj"]
+
+[ext_resource type="Script" path="res://inventory/inventory_ui.gd" id="1_26l0a"]
+[ext_resource type="Script" path="res://inventory/inv.gd" id="2_8e6sc"]
+[ext_resource type="PackedScene" uid="uid://dkoqoo6ak7ojh" path="res://inventory/inv_ui_slot.tscn" id="3_s76ee"]
+
+[sub_resource type="Resource" id="Resource_4cyje"]
+script = ExtResource("2_8e6sc")
+slots = Array[Resource("res://inventory/inv_slot.gd")]([null, null, null, null])
+money = 0.0
+
+[node name="inventory_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -832.0
+offset_bottom = -584.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_26l0a")
+inv = SubResource("Resource_4cyje")
+
+[node name="InvSlot0" parent="." instance=ExtResource("3_s76ee")]
+layout_mode = 0
+
+[node name="InvSlot1" parent="." instance=ExtResource("3_s76ee")]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 128.0
+
+[node name="InvSlot2" parent="." instance=ExtResource("3_s76ee")]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 192.0
+
+[node name="InvSlot3" parent="." instance=ExtResource("3_s76ee")]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 256.0
+
+[node name="InvSlot4" parent="." instance=ExtResource("3_s76ee")]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 320.0

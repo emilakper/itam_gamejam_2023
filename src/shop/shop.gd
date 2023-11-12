@@ -7,6 +7,7 @@ func get_money_val() -> float:
 	
 func set_money_val(val : float):
 	pass
+
 func _on_leave_button_pressed():
 	print("leaving shop")
 
@@ -15,6 +16,17 @@ var item_array
 var money : float
 var selected_item_id : int
 
+func _enter_tree():
+	load_items()
+	money=get_money_val()
+	get_child(0).select(0)
+	_on_item_list_item_selected(0)
+	update_purchase_button()
+	update_balance_text()
+	
+func _exit_tree():
+	set_money_val(money)
+
 func load_items():
 	var file = FileAccess.open("res://shop/shop_tems.json", FileAccess.READ)
 	var content = file.get_as_text()
@@ -22,7 +34,6 @@ func load_items():
 	var item_list=get_child(0)
 	for item in item_array:
 		item_list.add_item(item["name"])
-	return
 
 func update_purchase_button():
 	get_child(2).disabled= not money>=item_array[selected_item_id]["price"]
@@ -33,18 +44,7 @@ func update_balance_text():
 
 
 
-func _enter_tree():
-	load_items()
-	money=get_money_val()
-	get_child(0).select(0)
-	_on_item_list_item_selected(0)
-	update_purchase_button()
-	update_balance_text()
-	
 
-	
-func _exit_tree():
-	set_money_val(money)
 	
 func _on_item_list_item_selected(index):
 	selected_item_id=index
