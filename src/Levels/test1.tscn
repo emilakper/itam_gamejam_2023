@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cri7lhcayeyqe"]
+[gd_scene load_steps=9 format=3 uid="uid://cri7lhcayeyqe"]
 
 [ext_resource type="PackedScene" uid="uid://bk7m8iwrwfu31" path="res://Objects/Terrain/Terrain.tscn" id="1_ery0m"]
 [ext_resource type="PackedScene" uid="uid://berb6p86mq5qv" path="res://Objects/MainCharacter.tscn" id="2_b3u2g"]
@@ -7,9 +7,6 @@
 [ext_resource type="Script" path="res://Objects/TestCharacter.gd" id="5_fyi44"]
 [ext_resource type="PackedScene" uid="uid://b4y64v8ulx7nm" path="res://dialogue_templates/actionable.tscn" id="6_lgpei"]
 [ext_resource type="Resource" uid="uid://bom85tg50v3bh" path="res://dialogues/example_dialogue.dialogue" id="7_0yert"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3js5"]
-size = Vector2(46, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cggl6"]
 size = Vector2(72, 61)
@@ -34,11 +31,7 @@ Foreground = NodePath("../Foreground")
 position = Vector2(188, 26)
 zoom = Vector2(2, 2)
 
-[node name="ActioanableFinder" parent="MainCharacter" instance=ExtResource("3_p3sex")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter/ActioanableFinder"]
-position = Vector2(47, 49)
-shape = SubResource("RectangleShape2D_k3js5")
+[node name="ActioanableFinder2" parent="MainCharacter" instance=ExtResource("3_p3sex")]
 
 [node name="Background" parent="." instance=ExtResource("1_ery0m")]
 unique_name_in_owner = true

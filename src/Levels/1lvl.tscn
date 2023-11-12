@@ -418,7 +418,7 @@ base_wait_time = 120
 
 [node name="SimplePointLight" parent="." instance=ExtResource("7_kmikc")]
 position = Vector2(417, 200)
-color = Color(0.462745, 0, 0.482353, 1)
+color = Color(0.34902, 0.329412, 0.188235, 0.772549)
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_item_cull_mask = 3
@@ -491,7 +491,7 @@ top_level = true
 position = Vector2(0, -117)
 rotation = -0.607375
 skew = 0.322886
-color = Color(0.929412, 0.427451, 0.509804, 1)
+color = Color(0.188235, 0.0588235, 0.0745098, 0.521569)
 blend_mode = 1
 range_z_max = 119
 shadow_enabled = true
@@ -506,7 +506,7 @@ occluder = SubResource("OccluderPolygon2D_uhtf6")
 [node name="BodyLigyht" parent="." instance=ExtResource("7_kmikc")]
 position = Vector2(345, -19)
 scale = Vector2(0.361328, 0.361328)
-color = Color(1, 0, 0, 1)
+color = Color(0.270588, 0.160784, 0, 1)
 energy = 1.49
 shadow_enabled = true
 shadow_item_cull_mask = 2
@@ -518,7 +518,7 @@ script = ExtResource("18_uhrcs")
 [node name="BodyLigyht2" parent="." instance=ExtResource("7_kmikc")]
 position = Vector2(399, -15)
 scale = Vector2(0.361328, 0.361328)
-color = Color(1, 0, 0, 1)
+color = Color(0.301961, 0.188235, 0.0156863, 1)
 energy = 1.49
 shadow_enabled = true
 shadow_item_cull_mask = 2

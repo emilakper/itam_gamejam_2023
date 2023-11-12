@@ -165,6 +165,8 @@ func _process(_delta):
 	# maybe move it later
 	if not should_block_actions and Input.is_action_just_pressed("EnterDoor") and $MinigamePopup.visible and CurrentMinigame != null:
 		CurrentMinigame.start_minigame()
+		$character/Animations.play("sit_down")
+		$character/Animations.play("sitting")
 		$MinigamePopup.hide()
 	
 	if Input.is_action_just_pressed("EnterDoor") and $StairsPopup.visible and CurrentStairs != null:
