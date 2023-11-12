@@ -32,7 +32,19 @@ shape = SubResource("RectangleShape2D_eirrd")
 position = Vector2(-57, -7)
 scale = Vector2(0.175, 0.167)
 
+[node name="body" parent="officer/hip" index="0"]
+scale = Vector2(4, 4)
+
+[node name="head" parent="officer/hip/body" index="0"]
+scale = Vector2(0.35, 0.35)
+
+[node name="armL" parent="officer/hip/body" index="1"]
+scale = Vector2(0.6, 0.6)
+
 [node name="armR" parent="officer/hip/body" index="2"]
 scale = Vector2(0.499999, 0.499999)
+
+[node name="handR" parent="officer/hip/body/armR" index="0"]
+scale = Vector2(1.2, 1.2)
 
 [editable path="officer"]

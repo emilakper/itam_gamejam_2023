@@ -4,6 +4,7 @@ class_name Officer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	State.cops_arrived.connect(_on_cops_arrived)
+	$officer.get_node("Animation").play("idle")
 
 
 func _on_cops_arrived():
