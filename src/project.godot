@@ -57,7 +57,7 @@ Speak={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogues/example_dialogue.dialogue", "res://officer.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogues/example_dialogue.dialogue", "res://officer.dialogue", "res://boss_speaking.dialogue")
 
 [layer_names]
 

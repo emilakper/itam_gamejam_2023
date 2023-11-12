@@ -143,6 +143,8 @@ func _physics_process(delta):
 		$character.flip()
 	elif direction == -1 and $character.facing_right():
 		$character.flip()
+	# $character.anims.clear()
+	$character.anims.play("sit_down")
 	move_and_slide()
 
 func _process(_delta):

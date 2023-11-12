@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnvrb5ml58qtu"]
 
-[ext_resource type="PackedScene" uid="uid://d3raq5y2x3m28" path="res://MaksatikDid/officer/skeleton.tscn" id="1_rdiwi"]
 [ext_resource type="Script" path="res://Objects/NPCs/Officer.gd" id="1_w2ufr"]
 [ext_resource type="PackedScene" uid="uid://b4y64v8ulx7nm" path="res://dialogue_templates/actionable.tscn" id="3_yv8gk"]
 [ext_resource type="Resource" uid="uid://b7eqjaoelx06" path="res://officer.dialogue" id="4_5vfps"]
+[ext_resource type="PackedScene" uid="uid://d3raq5y2x3m28" path="res://MaksatikTg/officer/officer.tscn" id="4_bpv28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfodu"]
 size = Vector2(34, 93)
@@ -17,10 +17,6 @@ collision_layer = 512
 collision_mask = 512
 script = ExtResource("1_w2ufr")
 
-[node name="officer" parent="." instance=ExtResource("1_rdiwi")]
-position = Vector2(-57, -7)
-scale = Vector2(0.175299, 0.167181)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(29, 50.5)
 shape = SubResource("RectangleShape2D_yfodu")
@@ -31,3 +27,7 @@ dialogue_resource = ExtResource("4_5vfps")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
 position = Vector2(28.7801, 50.5238)
 shape = SubResource("RectangleShape2D_eirrd")
+
+[node name="officer" parent="." instance=ExtResource("4_bpv28")]
+position = Vector2(-57, -7)
+scale = Vector2(0.175, 0.167)
