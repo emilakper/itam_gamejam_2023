@@ -12,9 +12,12 @@ var CleaningProgress = $HBoxContainer/Bars/Bar/ProgressBar
 @onready
 var timer: RichTextLabel = $HBoxContainer/Bars/Timer
 
+func _on_cops_arrived():
+	timer.hide()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(get_tree().current_scene)
+	State.cops_arrived.connect(_on_cops_arrived)
 	cops_timer = get_tree().current_scene.find_children("*", "Hero")[0].cops_timer
 	
 	timer.text += "[shake]"

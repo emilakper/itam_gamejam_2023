@@ -24,7 +24,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if time_left() < 0:
-		cops_arrived.emit()
+		State.cops_arrive()
+		# cops_arrived.emit()
 
 
 func _on_timeout():
