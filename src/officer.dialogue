@@ -14,8 +14,8 @@ set State.time_talked_to_officer = State.time_talked_to_officer + 1
 
 ~ exit
 if not State.did_cops_arrive:
-	Вызвать полицию?
-	- Дождаться маруси
+	Вызвать наряд?
+	- Дождаться наряда
 		do State.cops_arrive()
 	- Отмена
 	
