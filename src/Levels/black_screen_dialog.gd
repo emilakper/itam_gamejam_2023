@@ -10,4 +10,4 @@ func _ready():
 	
 	
 func _on_boss_dialog_ended(resource):
-	print("leave scene")
+	get_tree().change_scene_to_file("res://Levels/1lvl.tscn")
