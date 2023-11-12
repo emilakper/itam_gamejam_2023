@@ -31,3 +31,8 @@ shape = SubResource("RectangleShape2D_eirrd")
 [node name="officer" parent="." instance=ExtResource("4_bpv28")]
 position = Vector2(-57, -7)
 scale = Vector2(0.175, 0.167)
+
+[node name="armR" parent="officer/hip/body" index="2"]
+scale = Vector2(0.499999, 0.499999)
+
+[editable path="officer"]

@@ -37,8 +37,7 @@ const COLLISION_OUTSIDE_LAYER : int = pow(2, 1)
 const COLLISION_INSIDE_LAYER : int = pow(2, 2) 
 const COLLISION_HERO_LAYER : int = 256
 
-@onready
-var SkeletonAnims: AnimationPlayer = $character.anims
+
 
 var CurrentMinigame: Minigame = null
 
@@ -54,13 +53,14 @@ func _on_got_dialogue(line):
 	pass
 	
 func _ready():
+	$character.get_node("Animations").queue("idle")
 	State.cops_arrived.connect(_on_cops_arrived)
 	gui = get_tree().current_scene.find_children("*", "GUI")[0]
 	DialogueManager.connect("got_dialogue", _on_got_dialogue)
 	cops_timer.connect("cops_arrived", _on_cops_arrived)
 	__connect_signals_of_type("Minigame", "minigame_start", _on_minigame_start)
 	__connect_signals_of_type("Minigame", "minigame_end", _on_minigame_end)
-	SkeletonAnims.queue("idle")
+	#SkeletonAnims.queue("idle")
 	
 	
 func block_input() -> void:
@@ -144,7 +144,10 @@ func _physics_process(delta):
 	elif direction == -1 and $character.facing_right():
 		$character.flip()
 	# $character.anims.clear()
-	$character.anims.play("sit_down")
+	if direction:
+		$character.get_node("Animations").play("walking")
+	else:
+		$character.get_node("Animations").play("idle")
 	move_and_slide()
 
 func _process(_delta):

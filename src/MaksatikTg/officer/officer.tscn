@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://d3raq5y2x3m28"]
 
 [ext_resource type="Script" path="res://MaksatikDid/officer/officer.gd" id="1_lqc2l"]
-[ext_resource type="Texture2D" uid="uid://b0y0b5kn6a6tr" path="res://MaksatikDid/officer/sprites/левая нога2.png" id="2_gfjfd"]
-[ext_resource type="Texture2D" uid="uid://cixwi548wp7j0" path="res://MaksatikDid/officer/sprites/левая рука 2.png" id="3_o0m2k"]
-[ext_resource type="Texture2D" uid="uid://c1mavoi04vuav" path="res://MaksatikDid/officer/sprites/лицо_туловище2.png" id="4_5vfmn"]
-[ext_resource type="Texture2D" uid="uid://buddem6r63mul" path="res://MaksatikDid/officer/sprites/правая нога2.png" id="5_tqs3f"]
-[ext_resource type="Texture2D" uid="uid://bolwwgx6ke668" path="res://MaksatikDid/officer/sprites/правая рука 2.png" id="6_vcfqy"]
+[ext_resource type="Texture2D" uid="uid://b0y0b5kn6a6tr" path="res://MaksatikTg/officer/sprites/левая нога2.png" id="2_gfjfd"]
+[ext_resource type="Texture2D" uid="uid://cixwi548wp7j0" path="res://MaksatikTg/officer/sprites/левая рука 2.png" id="3_o0m2k"]
+[ext_resource type="Texture2D" uid="uid://c1mavoi04vuav" path="res://MaksatikTg/officer/sprites/лицо_туловище2.png" id="4_5vfmn"]
+[ext_resource type="Texture2D" uid="uid://buddem6r63mul" path="res://MaksatikTg/officer/sprites/правая нога2.png" id="5_tqs3f"]
+[ext_resource type="Texture2D" uid="uid://bolwwgx6ke668" path="res://MaksatikTg/officer/sprites/правая рука 2.png" id="6_vcfqy"]
 
 [sub_resource type="Animation" id="Animation_axre6"]
 length = 0.001

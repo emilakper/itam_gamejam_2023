@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://berb6p86mq5qv"]
+[gd_scene load_steps=13 format=3 uid="uid://berb6p86mq5qv"]
 
 [ext_resource type="Script" path="res://Objects/MainCharacter.gd" id="1_1gw75"]
 [ext_resource type="PackedScene" uid="uid://qmc84n44pqd6" path="res://UI/KeyPopup.tscn" id="3_xja76"]
 [ext_resource type="FontFile" uid="uid://bpnh1p4buv50g" path="res://fonts/Roboto-Regular.ttf" id="4_hyahp"]
 [ext_resource type="PackedScene" uid="uid://kj1psuogtg7v" path="res://Objects/StairsChecker.tscn" id="5_hp8n4"]
-[ext_resource type="PackedScene" uid="uid://b7hm16fc6kxtn" path="res://MaksatikDid/Main character/sceleton.tscn" id="6_8s7qn"]
 [ext_resource type="PackedScene" uid="uid://b6vuso8michvn" path="res://dialogue_templates/actioanable_finder.tscn" id="7_l0nue"]
 [ext_resource type="AudioStream" uid="uid://cciudd4mm4dnv" path="res://Music/doorsound.mp3" id="8_p1her"]
 [ext_resource type="PackedScene" uid="uid://b7hm16fc6kxtn" path="res://MaksatikTg/main_character/character.tscn" id="9_0rbqi"]
@@ -105,11 +104,6 @@ shape = SubResource("RectangleShape2D_t8ldx")
 [node name="StairsChecker" parent="." instance=ExtResource("5_hp8n4")]
 position = Vector2(47, 46)
 
-[node name="odsapdad" parent="." instance=ExtResource("6_8s7qn")]
-visible = false
-position = Vector2(-38, -44)
-scale = Vector2(0.176235, 0.176235)
-
 [node name="ActioanableFinder" parent="." instance=ExtResource("7_l0nue")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActioanableFinder"]
@@ -132,3 +126,4 @@ scale = Vector2(0.176, 0.176)
 [connection signal="area_exited" from="StairsChecker" to="." method="_on_stairs_checker_area_exited"]
 
 [editable path="StairsChecker"]
+[editable path="character"]
