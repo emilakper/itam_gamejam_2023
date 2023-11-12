@@ -1,4 +1,4 @@
 extends Control
 
-func _on_play_music_pressed():
-	$music.play()
+func _on_back_to_menu_pressed():
+	get_tree().change_scene_to_file("res://UI/Main Menu/menu.tscn")

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqdt4m24wb3du"]
+[gd_scene load_steps=4 format=3 uid="uid://cqdt4m24wb3du"]
 
 [ext_resource type="Script" path="res://UI/Settings Menu/settings.gd" id="1_6j1p3"]
 [ext_resource type="Texture2D" uid="uid://cq4l3501je3fl" path="res://фон_для_меню.png" id="2_bcxdj"]
 [ext_resource type="PackedScene" uid="uid://brp5k2nhim6ap" path="res://UI/VolumeSlider/VolumeSlider.tscn" id="3_0d0f6"]
-[ext_resource type="AudioStream" uid="uid://bnovb2e7rjkiv" path="res://UI/VolumeSlider/music.mp3" id="4_dn4wn"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -15,37 +14,51 @@ position = Vector2(574.5, 322.5)
 scale = Vector2(0.601563, 0.600926)
 texture = ExtResource("2_bcxdj")
 
-[node name="play_music" type="Button" parent="."]
-layout_mode = 0
-offset_left = 454.0
-offset_top = 131.0
-offset_right = 544.0
-offset_bottom = 181.0
-text = "Play music
-"
-
 [node name="VolumeSlider" parent="." instance=ExtResource("3_0d0f6")]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 135.0
-offset_right = 278.0
+offset_left = 359.0
+offset_top = 132.0
+offset_right = 545.0
+offset_bottom = 258.0
+max_value = 10.0
+value = 6.0
+bus_name = "Music"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 177.0
+offset_right = 313.0
 offset_bottom = 261.0
+theme_override_font_sizes/normal_font_size = 23
+text = "Change music volume"
+
+[node name="Back_to_menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 478.0
+offset_right = 237.0
+offset_bottom = 579.0
+theme_override_font_sizes/font_size = 50
+text = "BACK"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 101.0
+offset_right = 323.0
+offset_bottom = 161.0
+theme_override_font_sizes/normal_font_size = 23
+text = "Change general volume"
+
+[node name="VolumeSlider2" parent="." instance=ExtResource("3_0d0f6")]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 71.0
+offset_right = 548.0
+offset_bottom = 178.0
 max_value = 10.0
 value = 6.0
 bus_name = "Master"
 
-[node name="music" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(25, 12)
-stream = ExtResource("4_dn4wn")
-bus = &"Music"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 60.0
-offset_top = 100.0
-offset_right = 324.0
-offset_bottom = 184.0
-theme_override_font_sizes/normal_font_size = 23
-text = "Change music volume"
-
-[connection signal="pressed" from="play_music" to="." method="_on_play_music_pressed"]
+[connection signal="pressed" from="Back_to_menu" to="." method="_on_back_to_menu_pressed"]
