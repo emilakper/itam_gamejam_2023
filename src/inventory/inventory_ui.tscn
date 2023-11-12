@@ -1,12 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://b78nmta87loqj"]
+[gd_scene load_steps=17 format=3 uid="uid://b78nmta87loqj"]
 
 [ext_resource type="Script" path="res://inventory/inventory_ui.gd" id="1_26l0a"]
 [ext_resource type="Script" path="res://inventory/inv.gd" id="2_8e6sc"]
+[ext_resource type="Script" path="res://inventory/inv_item.gd" id="3_7hnuy"]
 [ext_resource type="PackedScene" uid="uid://dkoqoo6ak7ojh" path="res://inventory/inv_ui_slot.tscn" id="3_s76ee"]
+[ext_resource type="Script" path="res://inventory/inv_slot.gd" id="4_4t122"]
+
+[sub_resource type="Resource" id="Resource_41fd4"]
+script = ExtResource("3_7hnuy")
+name = ""
+
+[sub_resource type="Resource" id="Resource_cat3a"]
+script = ExtResource("4_4t122")
+item = SubResource("Resource_41fd4")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_iepjx"]
+script = ExtResource("3_7hnuy")
+name = ""
+
+[sub_resource type="Resource" id="Resource_gvb81"]
+script = ExtResource("4_4t122")
+item = SubResource("Resource_iepjx")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_c1ovh"]
+script = ExtResource("3_7hnuy")
+name = ""
+
+[sub_resource type="Resource" id="Resource_s7c3n"]
+script = ExtResource("4_4t122")
+item = SubResource("Resource_c1ovh")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ohukc"]
+script = ExtResource("3_7hnuy")
+name = ""
+
+[sub_resource type="Resource" id="Resource_oaqkm"]
+script = ExtResource("4_4t122")
+item = SubResource("Resource_ohukc")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_285ew"]
+script = ExtResource("3_7hnuy")
+name = ""
+
+[sub_resource type="Resource" id="Resource_wdh2s"]
+script = ExtResource("4_4t122")
+item = SubResource("Resource_285ew")
+amount = 0
 
 [sub_resource type="Resource" id="Resource_4cyje"]
 script = ExtResource("2_8e6sc")
-slots = Array[Resource("res://inventory/inv_slot.gd")]([null, null, null, null])
+slots = Array[ExtResource("4_4t122")]([SubResource("Resource_cat3a"), SubResource("Resource_gvb81"), SubResource("Resource_s7c3n"), SubResource("Resource_oaqkm"), SubResource("Resource_wdh2s")])
 money = 0.0
 
 [node name="inventory_ui" type="Control"]
@@ -26,20 +73,20 @@ layout_mode = 0
 
 [node name="InvSlot1" parent="." instance=ExtResource("3_s76ee")]
 layout_mode = 0
-offset_left = 64.0
-offset_right = 128.0
+offset_left = 128.0
+offset_right = 256.0
 
 [node name="InvSlot2" parent="." instance=ExtResource("3_s76ee")]
 layout_mode = 0
-offset_left = 128.0
-offset_right = 192.0
+offset_left = 256.0
+offset_right = 384.0
 
 [node name="InvSlot3" parent="." instance=ExtResource("3_s76ee")]
 layout_mode = 0
-offset_left = 192.0
-offset_right = 256.0
+offset_left = 384.0
+offset_right = 512.0
 
 [node name="InvSlot4" parent="." instance=ExtResource("3_s76ee")]
 layout_mode = 0
-offset_left = 256.0
-offset_right = 320.0
+offset_left = 512.0
+offset_right = 640.0
