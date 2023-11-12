@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_10"
+type="Resource"
+uid="uid://k5l4xgbioant"
+path="res://.godot/imported/boss_speaking.dialogue-de34589718bf8a92d98018d982b42f1b.tres"
+
+[deps]
+
+source_file="res://boss_speaking.dialogue"
+dest_files=["res://.godot/imported/boss_speaking.dialogue-de34589718bf8a92d98018d982b42f1b.tres"]
+
+[params]
+
+defaults=true
