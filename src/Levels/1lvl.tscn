@@ -374,6 +374,8 @@ position = Vector2(0, 1)
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("Background", "Foreground", "MGSettings", "cops_timer") instance=ExtResource("2_dx8la")]
 position = Vector2(93, 174)
+collision_layer = 387
+collision_mask = 899
 speed = 200.0
 Background = NodePath("../Background")
 Foreground = NodePath("../Foreground")

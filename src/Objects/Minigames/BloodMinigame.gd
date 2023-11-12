@@ -29,10 +29,11 @@ var ClearedSpriteTexture: Sprite2D
 @export
 var SFX: AudioStreamMP3
 
-# var cops_arrived: bool = false
+
+var cops_arrived: bool = false
 
 func _on_cops_arrived():
-	is_active = false
+	cops_arrived = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +43,7 @@ func _ready():
 	BaseSpriteTexture.show()
 	Settings.parse()
 	$Title.text = Settings.getTitle()
+	
 
 var characters_yet_achived: int = 0
 var current_text: String
@@ -107,9 +109,8 @@ func queue_stuff(scancode):
 
 
 func _on_area_entered(area):
-	if not is_active:
+	if cops_arrived:
 		return
-		
 	if area.get_parent() is Hero: 
 		var hero : Hero = area.get_parent()
 		$Title.show()
